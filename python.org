@@ -19,7 +19,8 @@ It is recommended that you navigate using the hyperlinked TOC or the Adobe
 Bookmarks tree.
 
 ** Hardware and Software Used
-  This notebook is written in an =org-mode= file and exported via LaTeX, Org version 9.3.6 on
+
+   This notebook is written in an =org-mode= file and exported via LaTeX, Org version 9.3.6 on
   GNU Emacs 25.2.2 (x86_ 64-pc-linux-gnu, GTK+ Version 3.22.21) of
   2017-09-23, modified by Debian, on a Foxconn Core i7 NanoPC running Linux
   Mint 19.3 XFCE 64-bit. Python 2.7.17 of 2020-04-15 is used
