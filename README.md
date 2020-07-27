@@ -6,4 +6,4 @@
 `ORG` files, it is recommended that you use Emacs with `org-mode`. 
 
 ## Contact
-Contact `aditya.v.nebhrajani@gmail.com` for further guidance. 
+Contact `aditya.v.nebhrajani@gmail.com` for any further assistance. 
