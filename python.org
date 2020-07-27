@@ -34,7 +34,6 @@ Bookmarks tree.
    exist and thrive.
 \newpage
 
-
 * NumPy
 ** Worksheet 2020-07-26
 
