@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{pandas} \PYG{k+kn}{as} \PYG{n+nn}{pd}
+\PYG{n}{ds1} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{Series}\PYG{p}{([}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{,} \PYG{l+m+mi}{10}\PYG{p}{])}
+\PYG{n}{ds2} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{Series}\PYG{p}{([}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{7}\PYG{p}{,} \PYG{l+m+mi}{9}\PYG{p}{])}
+\PYG{n}{ds} \PYG{o}{=} \PYG{n}{ds1} \PYG{o}{+} \PYG{n}{ds2}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Add two Series:\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{ds}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Subtract two Series:\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{ds} \PYG{o}{=} \PYG{n}{ds1} \PYG{o}{\PYGZhy{}} \PYG{n}{ds2}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{ds}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Multiply two Series:\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{ds} \PYG{o}{=} \PYG{n}{ds1} \PYG{o}{*} \PYG{n}{ds2}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{ds}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Divide Series1 by Series2:\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{ds} \PYG{o}{=} \PYG{n}{ds1} \PYG{o}{/} \PYG{n}{ds2}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{ds}\PYG{p}{)}
+\end{Verbatim}

@@ -277,6 +277,7 @@ Bookmarks tree.
 
  #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
  #+BEGIN_SRC python :results output :exports both
+   # Series operations
    import pandas as pd
    ds1 = pd.Series([2, 4, 6, 8, 10])
    ds2 = pd.Series([1, 3, 5, 7, 9])
