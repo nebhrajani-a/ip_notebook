@@ -1,4 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{c}{\PYGZsh{} Print Hello world!}
-\PYG{k}{print}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Hello world!\PYGZdq{}}\PYG{p}{)}
-\end{Verbatim}
