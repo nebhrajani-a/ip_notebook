@@ -1,4 +1,4 @@
-% Created 2020-07-27 Mon 17:01
+% Created 2020-07-29 Wed 13:56
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -35,9 +35,9 @@
 \newpage
 
 \section{Preamble}
-\label{sec:org81c9823}
+\label{sec:org3b71c01}
 \subsection{Notebook Conventions}
-\label{sec:orgb595508}
+\label{sec:orgd0b95c7}
 All code in this notebook is in Python unless specified otherwise.
 All code is syntax-highlighted, placed in boxes, and is line
 numbered. The output of the interpreter on \texttt{stdout} is printed directly below it,
@@ -56,7 +56,7 @@ It is recommended that you navigate using the hyperlinked TOC or the Adobe
 Bookmarks tree.
 
 \subsection{Hardware and Software Used}
-\label{sec:org2e82900}
+\label{sec:org40affac}
 
  This notebook is written in an \texttt{org-mode} file and exported via \LaTeX{}, Org version 9.3.6 on
 GNU Emacs 25.2.2 (x86\_ 64-pc-linux-gnu, GTK+ Version 3.22.21) of
@@ -66,7 +66,7 @@ throughout unless specified otherwise. For the Org or \LaTeX{} source, contact
 \href{mailto:aditya.v.nebhrajani@gmail.com}{aditya.v.nebhrajani@gmail.com}.
 
 \subsection{Acknowledgements}
-\label{sec:orge1fd5ad}
+\label{sec:org48912f4}
 I am grateful to the FSF, the GNU Project, the Linux foundation,
 the Emacs, StackExchange and FLOSS communities, and my father,
 who taught me that a world outside commercialized technology does
@@ -74,9 +74,9 @@ exist and thrive.
 \newpage
 
 \section{NumPy}
-\label{sec:org309edb0}
+\label{sec:org908c18f}
 \subsection{Worksheet 2020-07-26}
-\label{sec:org39fda2d}
+\label{sec:orgd718151}
 
 \begin{enumerate}
 \item Create an ndarray with values ranging from 10 to 49 each spaced with a difference of 3.
@@ -353,9 +353,9 @@ print(a[::-1,::-1])
 \end{enumerate}
 
 \section{Pandas}
-\label{sec:org13c9a9c}
+\label{sec:org7dddfdb}
 \subsection{Series}
-\label{sec:org98574b0}
+\label{sec:org18d2e89}
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Import numpy and pandas
@@ -433,5 +433,85 @@ cherries    6000
 kiwi          20
 oranges      100
 dtype: int64
+\end{verbatim}
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+# Indexing
+import pandas as pd
+from pandas import Series
+arr = Series([22, 44, 66, 88, 108])
+print(arr[[1, 3, 0, 4]])
+\end{minted}
+
+\begin{verbatim}
+1     44
+3     88
+0     22
+4    108
+dtype: int64
+\end{verbatim}
+
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+import pandas as pd
+ds1 = pd.Series([2, 4, 6, 8, 10])
+ds2 = pd.Series([1, 3, 5, 7, 9])
+print(ds1)
+print(ds2)
+ds = ds1 + ds2
+print("Add two Series:")
+print(ds)
+print("Subtract two Series:")
+ds = ds1 - ds2
+print(ds)
+print("Multiply two Series:")
+ds = ds1 * ds2
+print(ds)
+print("Divide Series1 by Series2:")
+ds = ds1 / ds2
+print(ds)
+\end{minted}
+
+\begin{verbatim}
+0     2
+1     4
+2     6
+3     8
+4    10
+dtype: int64
+0    1
+1    3
+2    5
+3    7
+4    9
+dtype: int64
+Add two Series:
+0     3
+1     7
+2    11
+3    15
+4    19
+dtype: int64
+Subtract two Series:
+0    1
+1    1
+2    1
+3    1
+4    1
+dtype: int64
+Multiply two Series:
+0     2
+1    12
+2    30
+3    56
+4    90
+dtype: int64
+Divide Series1 by Series2:
+0    2.000000
+1    1.333333
+2    1.200000
+3    1.142857
+4    1.111111
+dtype: float64
 \end{verbatim}
 \end{document}
