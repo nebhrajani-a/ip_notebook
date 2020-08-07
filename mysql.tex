@@ -1,0 +1,1290 @@
+% Created 2020-07-27 Mon 14:18
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage[hidelinks]{hyperref}
+\usepackage{minted}
+\usepackage[a4paper, total={6in, 9.1in}]{geometry}
+\author{Nebhrajani A. V.}
+\date{}
+\title{MySQL IP Class Notebook}
+\hypersetup{
+ pdfauthor={Nebhrajani A. V.},
+ pdftitle={MySQL IP Class Notebook},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.2.2 (Org mode 9.3.6)},
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Hospital}
+\label{sec:orgd445b13}
+\textbf{mysql>} select * from HOSPITAL where NAME like '\uline{\_\_}';
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+NO & NAME & AGE & DEPARTMENT & DATEOFADMIN & CHARGE & SEX \\
+\hline
+6 & Siju & 23 & Cardiology & 2006-10-10 & 800 & M \\
+10 & Hari & 28 & Surgery & 2006-03-19 & 450 & M \\
+\hline
+\end{tabular}
+\end{center}
+2 rows in set (0.00 sec)
+
+\textbf{mysql>} update HOSPITAL set CHARGE=CHARGE-200 where SEX='F' and DEPARTMENT='Cardiology';
+
+Query OK, 1 row affected (0.11 sec)
+
+Rows matched: 1  Changed: 1  Warnings: 0
+
+\textbf{mysql>} select * from HOSPITAL;
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+NO & NAME & AGE & DEPARTMENT & DATEOFADMIN & CHARGE & SEX \\
+\hline
+1 & Arpit & 62 & Surgery & 2006-01-21 & 300 & M \\
+2 & Zayana & 18 & ENT & 2005-12-12 & 250 & F \\
+3 & Kareem & 68 & Orthopedic & 2006-02-19 & 450 & M \\
+4 & Abhilash & 26 & Surgery & 2006-11-24 & 450 & M \\
+5 & Dhanya & 24 & ENT & 2006-10-20 & 350 & F \\
+6 & Siju & 23 & Cardiology & 2006-10-10 & 800 & M \\
+7 & Ankita & 16 & ENT & 2006-04-13 & 100 & F \\
+8 & Divya & 20 & Cardiology & 2006-11-10 & 300 & F \\
+9 & Nidhin & 25 & Orthopedic & 2006-05-12 & 700 & M \\
+10 & Hari & 28 & Surgery & 2006-03-19 & 450 & M \\
+\hline
+\end{tabular}
+\end{center}
+10 rows in set (0.00 sec)
+
+\textbf{mysql>} insert into HOSPITAL values (11, 'Rakesh', 45, 'ENT', 20080808, 1200, 'M'
+);
+ERROR 1406 (22001): Data too long for column 'CHARGE' at row 1
+\textbf{mysql>} alter table HOSPITAL modify CHARGE char(4);
+Query OK, 10 rows affected (1.96 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+\textbf{mysql>} insert into HOSPITAL values (11, 'Rakesh', 45, 'ENT', 20080808, 1200, 'M'
+);
+Query OK, 1 row affected (0.08 sec)
+
+\textbf{mysql>} delete from HOSPITAL where AGE>60;
+Query OK, 2 rows affected (0.11 sec)
+
+\textbf{mysql>} select * from HOSPITAL;
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+NO & NAME & AGE & DEPARTMENT & DATEOFADMIN & CHARGE & SEX \\
+\hline
+2 & Zayana & 18 & ENT & 2005-12-12 & 250 & F \\
+4 & Abhilash & 26 & Surgery & 2006-11-24 & 450 & M \\
+5 & Dhanya & 24 & ENT & 2006-10-20 & 350 & F \\
+6 & Siju & 23 & Cardiology & 2006-10-10 & 800 & M \\
+7 & Ankita & 16 & ENT & 2006-04-13 & 100 & F \\
+8 & Divya & 20 & Cardiology & 2006-11-10 & 300 & F \\
+9 & Nidhin & 25 & Orthopedic & 2006-05-12 & 700 & M \\
+10 & Hari & 28 & Surgery & 2006-03-19 & 450 & M \\
+11 & Rakesh & 45 & ENT & 2008-08-08 & 1200 & M \\
+\hline
+\end{tabular}
+\end{center}
+9 rows in set (0.00 sec)
+
+\textbf{mysql>} insert into HOSPITAL values (12, 'Rakhi', 45, 'ENT', 20070802, NULL, 'F')
+;
+Query OK, 1 row affected (0.06 sec)
+
+\textbf{mysql>} insert into HOSPITAL values (13, 'Nishi', 45, NULL, 20090801, 450, 'F');
+Query OK, 1 row affected (0.08 sec)
+
+\textbf{mysql>} select * from HOSPITAL;
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+NO & NAME & AGE & DEPARTMENT & DATEOFADMIN & CHARGE & SEX \\
+\hline
+2 & Zayana & 18 & ENT & 2005-12-12 & 250 & F \\
+4 & Abhilash & 26 & Surgery & 2006-11-24 & 450 & M \\
+5 & Dhanya & 24 & ENT & 2006-10-20 & 350 & F \\
+6 & Siju & 23 & Cardiology & 2006-10-10 & 800 & M \\
+7 & Ankita & 16 & ENT & 2006-04-13 & 100 & F \\
+8 & Divya & 20 & Cardiology & 2006-11-10 & 300 & F \\
+9 & Nidhin & 25 & Orthopedic & 2006-05-12 & 700 & M \\
+10 & Hari & 28 & Surgery & 2006-03-19 & 450 & M \\
+11 & Rakesh & 45 & ENT & 2008-08-08 & 1200 & M \\
+12 & Rakhi & 45 & ENT & 2007-08-02 & NULL & F \\
+13 & Nishi & 45 & NULL & 2009-08-01 & 450 & F \\
+\hline
+\end{tabular}
+\end{center}
+11 rows in set (0.00 sec)
+
+\textbf{mysql>} select count(DEPARTMENT) from HOSPITAL;
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+count(DEPARTMENT) \\
+\hline
+10 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.00 sec)
+
+\textbf{mysql>} select count(*) from HOSPITAL;
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+count(*) \\
+\hline
+11 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.00 sec)
+
+\textbf{mysql>} select SUM(CHARGE) from HOSPITAL where SEX='F';
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+SUM(CHARGE) \\
+\hline
+1450 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.00 sec)
+
+\section{Schoolbus}
+\label{sec:orge313513}
+\textbf{mysql>} select * from Schoolbus where CAPACITY>NOOFSTUDENTS order by RTNO;
+\begin{verbatim}
+
++------+-------------+----------+--------------+----------+---------------+---------+
+| RTNO | AREACOVERED | CAPACITY | NOOFSTUDENTS | DISTANCE | TRANSPORTER   | CHARGES |
++------+-------------+----------+--------------+----------+---------------+---------+
+| 11   | Moti Bagh   | 35       | 32           | 10       | Kisan Tours   | 35000   |
+| 3    | Pitampura   | 60       | 55           | 30       | Anand Travels | 60000   |
++------+-------------+----------+--------------+----------+---------------+---------+
+
+\end{verbatim}
+2 rows in set (0.04 sec)
+
+\textbf{mysql>} Select AREACOVERED from SchoolBus where DISTANCE>20 and CHARGES<80000;
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+AREACOVERED \\
+\hline
+Pitampura \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.13 sec)
+
+\textbf{mysql>} Select TRANSPORTER, sum(NOOFSTUDENTS) from Schoolbus group by TRANSPORTER;
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+TRANSPORTER & sum(NOOFSTUDENTS) \\
+\hline
+Anand Travels & 225 \\
+Bhalla Co. & 60 \\
+Kisan Tours & 132 \\
+Shivam Travels & 120 \\
+Speed Travels & 160 \\
+Yadav Co. & 190 \\
+\hline
+\end{tabular}
+\end{center}
+6 rows in set (0.06 sec)
+
+\textbf{mysql>} Select TRANSPORTER, sum(NOOFSTUDENTS) from Schoolbus group by TRANSPORTER Order by 2 DESC;
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+TRANSPORTER & sum(NOOFSTUDENTS) \\
+\hline
+Anand Travels & 225 \\
+Yadav Co. & 190 \\
+Speed Travels & 160 \\
+Kisan Tours & 132 \\
+Shivam Travels & 120 \\
+Bhalla Co. & 60 \\
+\hline
+\end{tabular}
+\end{center}
+6 rows in set (0.00 sec)
+
+\textbf{mysql>} select RTNO, AREACOVERED, CHARGES/NOOFSTUDENTS as "AVERAGE COST PER STUDENT" from SchoolBus;
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+RTNO & AREACOVERED & AVERAGE COST PER STUDENT \\
+\hline
+1 & Vasant Kunj & 833.3333333333334 \\
+2 & Hauz Khas & 1062.5 \\
+3 & Pitampura & 1090.909090909091 \\
+4 & Rohini & 1111.111111111111 \\
+5 & Yamuna Vihar & 916.6666666666666 \\
+6 & Krishna Nagar & 1000 \\
+7 & Vasundhara & 909.0909090909091 \\
+8 & Paschim Vihar & 1375 \\
+9 & Saket & 833.3333333333334 \\
+10 & Jank Puri & 950 \\
+11 & Moti Bagh & 1093.75 \\
+\hline
+\end{tabular}
+\end{center}
+11 rows in set (0.06 sec)
+
+\textbf{mysql>} Insert into SchoolBus values (11, "Moti Bagh", 35, 32, 10, "Kisan Tours", 35000);
+Query OK, 1 row affected (0.66 sec)
+
+\textbf{mysql>} Select sum(DISTANCE) from SchoolBus where TRANSPORTER='Yadav Co.';
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+sum(DISTANCE) \\
+\hline
+50 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.02 sec)
+
+\textbf{mysql>} Select min(NOOFSTUDENTS) from SchoolBus;
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+min(NOOFSTUDENTS) \\
+\hline
+100 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.00 sec)
+
+\textbf{mysql>} Select avg(CHARGES) from SchoolBus where TRANSPORTER='Anand Travels';
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+avg(CHARGES) \\
+\hline
+81666.66666666667 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.01 sec)
+
+\textbf{mysql>} Select Distinct TRANSPORTER from SchoolBUs;
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+TRANSPORTER \\
+\hline
+Shivam Travels \\
+Anand Travels \\
+Bhalla Co. \\
+Yadav Co. \\
+Speed Travels \\
+Kisan Tours \\
+\hline
+\end{tabular}
+\end{center}
+6 rows in set (0.00 sec)
+
+\section{Graduate}
+\label{sec:org99d86cb}
+\textbf{mysql>} Select NAME from GRADUATE where DIVI="I" order by NAME;
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+NAME \\
+\hline
+ARJUN \\
+DIVYA \\
+DIWAKAR \\
+JOHN \\
+KARAN \\
+REKHA \\
+ROBERT \\
+RUBINA \\
+\hline
+\end{tabular}
+\end{center}
+8 rows in set (0.02 sec)
+
+\textbf{mysql>} Select NAME, STIPEND, SUBJECT, STIPEND*12 as "AMOUNT OF STIPEND RECIEVED IN A YEAR" from GRADUATE;
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+NAME & STIPEND & SUBJECT & AMOUNT OF STIPEND RECIEVED IN A YEAR \\
+\hline
+KARAN & 400 & PHYSICS & 4800 \\
+DIWAKAR & 450 & COMP SC & 5400 \\
+DIVYA & 300 & CHEMISTRY & 3600 \\
+REKHA & 350 & PHYSICS & 4200 \\
+ARJUN & 500 & MATHS & 6000 \\
+SABINA & 400 & CHEMISTRY & 4800 \\
+JOHN & 250 & PHYSICS & 3000 \\
+ROBERT & 450 & MATHS & 5400 \\
+RUBINA & 500 & COMP SC & 6000 \\
+VIKAS & 400 & MATHS & 4800 \\
+\hline
+\end{tabular}
+\end{center}
+10 rows in set (0.00 sec)
+
+\textbf{mysql>} select count(*) from GRADUATE where SUBJECT="PHYSICS" or SUBJECT="COMP SC";
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+count(*) \\
+\hline
+5 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.05 sec)
+
+\textbf{mysql>} insert into GRADUATE values (11, "KAJOL", 300, "COMP SC", 75, 1);
+Query OK, 1 row affected (0.11 sec)
+
+\textbf{mysql>} Select min(AVERAGE) from GRADUATE where SUBJECT="PHYSICS";
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+min(AVERAGE) \\
+\hline
+63 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.00 sec)
+
+\textbf{mysql>} Select SUM(STIPEND) from GRADUATE where DIVI="II";
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+SUM(STIPEND) \\
+\hline
+800 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.00 sec)
+
+\textbf{mysql>} Select AVG(STIPEND) from GRADUATE where AVERAGE>=65;
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+AVG(STIPEND) \\
+\hline
+420 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.00 sec)
+
+\textbf{mysql>} select COUNT(DIstinct SUBJECT) from GRADUATE;
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+COUNT(DIstinct SUBJECT) \\
+\hline
+4 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.06 sec)
+
+\section{Books and Issued}
+\label{sec:orgc321d10}
+\textbf{mysql>} select BookName, AuthorName, Price from book where Publisher='First Publ.';
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+BookName & AuthorName & Price \\
+\hline
+The Tears & William Hopkins & 650 \\
+Thunderbolts & Anna Roberts & 750 \\
+\hline
+\end{tabular}
+\end{center}
+2 rows in set (0.00 sec)
+
+\textbf{mysql>} select BookName from book where Type='Text';
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+BookName \\
+\hline
+My First C++ \\
+C++ Brain Works \\
+\hline
+\end{tabular}
+\end{center}
+2 rows in set (0.00 sec)
+
+\textbf{mysql>} select BookName,Price from book order by price;
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+BookName & Price \\
+\hline
+My First C++ & 350 \\
+C++ Brain Works & 350 \\
+Fast Cook & 355 \\
+The Tears & 650 \\
+Thunderbolts & 750 \\
+\hline
+\end{tabular}
+\end{center}
+5 rows in set (0.00 sec)
+
+\textbf{mysql>} update book set Price=Price+50 where Publisher='EPB';
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+\textbf{mysql>} select count(*) from book;
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+count(*) \\
+\hline
+5 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.00 sec)
+
+\textbf{mysql>} select book.bookid, bookname, quantityissued from book, issued where book.bookid=issued.bookid;
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+bookid & bookname & quantityissued \\
+\hline
+T0001 & My First C++ & 4 \\
+C0001 & Fast Cook & 5 \\
+F0001 & The Tears & 2 \\
+\hline
+\end{tabular}
+\end{center}
+3 rows in set (0.00 sec)
+
+\textbf{mysql>} select max(price) from book where quantity>=15;
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+max(price) \\
+\hline
+750 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.00 sec)
+
+\textbf{mysql>} select bookname, authorname from book where publisher='First Publ.';
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+bookname & authorname \\
+\hline
+The Tears & William Hopkins \\
+Thunderbolts & Anna Roberts \\
+\hline
+\end{tabular}
+\end{center}
+2 rows in set (0.00 sec)
+
+\textbf{mysql>} select count(distinct publisher) from book where price>=400;
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+count(distinct publisher) \\
+\hline
+2 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.04 sec)
+
+\section{Items and Company}
+\label{sec:orgd74b8d0}
+\subsection{(I)}
+\label{sec:orgd2723a2}
+\textbf{mysql>} select PNAME,PRICE*QTY from ITEMS,COMPANY where ITEMS.ID=COMPANY.ID and City='Mumbai';
+
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+PNAME & PRICE*QTY \\
+\hline
+Soap & 2400 \\
+Deodorant & 5750 \\
+\hline
+\end{tabular}
+\end{center}
+
+2 rows in set (0.01 sec)
+
+\subsection{(II)}
+\label{sec:org64817aa}
+\textbf{mysql>} select PNAME,COMP,PRICE from ITEMS,COMPANY where ITEMS.ID=COMPANY.ID;
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+PNAME & COMP & PRICE \\
+\hline
+Soap & HLL & 12 \\
+Paste & Colgate & 39.5 \\
+Deodorant & HLL & 125 \\
+Hair Oil & Paras & 28.75 \\
+Cold Cream & Ponds & 66 \\
+Tooth Brush & Wipro & 25 \\
+\hline
+\end{tabular}
+\end{center}
+6 rows in set (0.00 sec)
+
+\subsection{(III)}
+\label{sec:orga07b6bc}
+\textbf{mysql>} delete from ITEMS where MDATE<20070101;
+Query OK, 2 rows affected (0.06 sec)
+
+\textbf{mysql>} Select * from ITEMS;
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+ID & PNAME & PRICE & MDATE & QTY \\
+\hline
+T001 & Soap & 12 & 2007-03-11 & 200 \\
+T003 & Deodorant & 125 & 2007-06-12 & 46 \\
+T004 & Hair Oil & 28.75 & 2007-09-25 & 325 \\
+T005 & Cold Cream & 66 & 2007-10-09 & 144 \\
+\hline
+\end{tabular}
+\end{center}
+4 rows in set (0.02 sec)
+
+\subsection{(IV)}
+\label{sec:orga869dc9}
+\textbf{mysql>} update ITEMS set QTY=QTY+20 where PNAME='Soap' or PNAME='Paste';
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+\textbf{mysql>} Select * fRom ITEMS;
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+ID & PNAME & PRICE & MDATE & QTY \\
+\hline
+T001 & Soap & 12 & 2007-03-11 & 220 \\
+T003 & Deodorant & 125 & 2007-06-12 & 46 \\
+T004 & Hair Oil & 28.75 & 2007-09-25 & 325 \\
+T005 & Cold Cream & 66 & 2007-10-09 & 144 \\
+\hline
+\end{tabular}
+\end{center}
+4 rows in set (0.00 sec)
+
+\subsection{(V)}
+\label{sec:orgc2c62ec}
+\textbf{mysql>} select count(*) from ITEMS,COMPANY where ITEMS.ID=COMPANY.ID;
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+count(*) \\
+\hline
+4 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.02 sec)
+
+\subsection{(VII)}
+\label{sec:org3d1fa7e}
+\textbf{mysql>} select count(*) from COMPANY where COMP like 'P\_\_\_\_';
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+count(*) \\
+\hline
+2 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.03 sec)
+
+\subsection{(VIII)}
+\label{sec:org9981cae}
+\textbf{mysql>} select PNAME from ITEMS where QTY<100;
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+PNAME \\
+\hline
+Deodorant \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.00 sec)
+
+\section{Activity and Coach}
+\label{sec:org135ff13}
+\textbf{mysql>} select ActivityName, Acode from Activity order by Acode DESC;
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+ActivityName & Acode \\
+\hline
+Discus Throw & 1008 \\
+Long Jump & 1005 \\
+Shot Put & 1003 \\
+High Jump & 1002 \\
+Relay 100x4 & 1001 \\
+\hline
+\end{tabular}
+\end{center}
+5 rows in set (0.00 sec)
+
+\textbf{mysql>} select prizemoney, participantsnum from activity;
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+prizemoney & participantsnum \\
+\hline
+10000 & 16 \\
+12000 & 10 \\
+8000 & 12 \\
+9000 & 12 \\
+15000 & 10 \\
+\hline
+\end{tabular}
+\end{center}
+5 rows in set (0.00 sec)
+
+\textbf{mysql>} select name, Acode from coach  order by acode;
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+name & Acode \\
+\hline
+Ahmad Hussain & 1001 \\
+Janila & 1001 \\
+Naaz & 1003 \\
+Ravinder & 1008 \\
+\hline
+\end{tabular}
+\end{center}
+4 rows in set (0.00 sec)
+
+\textbf{mysql>} select * from ACTIVITY where ScheduleDate<'20040101' order by ParticipantsNum;
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+ACode & ActivityName & ParticipantsNum & PrizeMoney & ScheduleDate \\
+\hline
+1002 & High Jump & 10 & 12000 & 2003-12-12 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.00 sec)
+
+\textbf{mysql>} Select count(distinct ParticipantsNum) from activity;
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+count(distinct ParticipantsNum) \\
+\hline
+3 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.00 sec)
+
+\textbf{mysql>} Select max(ScheduleDate), min(ScheduleDate) from activity;
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+max(ScheduleDate) & min(ScheduleDate) \\
+\hline
+2004-03-19 & 2003-12-12 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.00 sec)
+
+\textbf{mysql>} select sum(PrizeMoney) from Activity;
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+sum(PrizeMoney) \\
+\hline
+54000 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.00 sec)
+
+\textbf{mysql>} SELECT DISTINCT ParticipantsNum  from ACTIVITY;
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+ParticipantsNum \\
+\hline
+16 \\
+10 \\
+12 \\
+\hline
+\end{tabular}
+\end{center}
+3 rows in set (0.00 sec)
+
+\textbf{mysql>} select activity.acode, activityname, name from activity,coach where prizemoney>10000 and activity.acode=coach.acode;
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+acode & activityname & name \\
+\hline
+1008 & Discus Throw & Ravinder \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.00 sec)
+
+\section{Employees and EMPSALARY}
+\label{sec:org6bc275e}
+\textbf{mysql>} select * from employees;
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+EmpId & FirstName & LastName & Address & City \\
+\hline
+10 & Ravi & Kumar & Raj Nagar & GZB \\
+105 & Harry & Waltor & Gandhi Nagar & GZB \\
+152 & Sam & Tones & 33 Elm St. & Paris \\
+215 & Sarah & Ackerman & 440 U.S. 110 & Upton \\
+244 & Manila & Sengupta & 24 Friends Street & New Delhi \\
+300 & Robert & Samuel & 9 Fifth Cross & Washington \\
+335 & Ritu & Tondon & Shastri Nagar & GZB \\
+400 & Rachel & Lee & 121 Harrison St. & New York \\
+441 & Peter & Thompson & 11 Red Road & Paris \\
+\hline
+\end{tabular}
+\end{center}
+9 rows in set (0.11 sec)
+
+\textbf{mysql>} select * from empsalary;
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+EmpId & Salary & Benefits & Designation \\
+\hline
+10 & 75000 & 15000 & Manager \\
+105 & 65000 & 15000 & Manager \\
+152 & 80000 & 25000 & Director \\
+215 & 75000 & 12500 & Manager \\
+244 & 50000 & 12000 & Clerk \\
+300 & 45000 & 10000 & Clerk \\
+335 & 40000 & 10000 & Clerk \\
+400 & 32000 & 7500 & Salesman \\
+441 & 28000 & 7500 & Salesman \\
+\hline
+\end{tabular}
+\end{center}
+9 rows in set (0.11 sec)
+
+\textbf{mysql>} select firstname, lastname, address, city from employees where city='Paris';
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+firstname & lastname & address & city \\
+\hline
+Sam & Tones & 33 Elm St. & Paris \\
+Peter & Thompson & 11 Red Road & Paris \\
+\hline
+\end{tabular}
+\end{center}
+2 rows in set (0.00 sec)
+
+\textbf{mysql>} select * from employees order by firstname desc;
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+EmpId & FirstName & LastName & Address & City \\
+\hline
+215 & Sarah & Ackerman & 440 U.S. 110 & Upton \\
+152 & Sam & Tones & 33 Elm St. & Paris \\
+300 & Robert & Samuel & 9 Fifth Cross & Washington \\
+335 & Ritu & Tondon & Shastri Nagar & GZB \\
+10 & Ravi & Kumar & Raj Nagar & GZB \\
+400 & Rachel & Lee & 121 Harrison St. & New York \\
+441 & Peter & Thompson & 11 Red Road & Paris \\
+244 & Manila & Sengupta & 24 Friends Street & New Delhi \\
+105 & Harry & Waltor & Gandhi Nagar & GZB \\
+\hline
+\end{tabular}
+\end{center}
+9 rows in set (0.00 sec)
+
+\textbf{mysql>} select firstname, lastname, salary from employees, empsalary where employees.empid=empsalary.empid;
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+firstname & lastname & salary \\
+\hline
+Ravi & Kumar & 75000 \\
+Harry & Waltor & 65000 \\
+Sam & Tones & 80000 \\
+Sarah & Ackerman & 75000 \\
+Manila & Sengupta & 50000 \\
+Robert & Samuel & 45000 \\
+Ritu & Tondon & 40000 \\
+Rachel & Lee & 32000 \\
+Peter & Thompson & 28000 \\
+\hline
+\end{tabular}
+\end{center}
+9 rows in set (0.06 sec)
+
+\textbf{mysql>} select max(salary) from empsalary where designation="Manager" or designation="Clerk";
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+max(salary) \\
+\hline
+75000 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.00 sec)
+
+\textbf{mysql>}
+\textbf{mysql>} select firstname, salary from employees, empsalary where designation="Salesman" and Employees.empid=Empsalary.empid;
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+firstname & salary \\
+\hline
+Rachel & 32000 \\
+Peter & 28000 \\
+\hline
+\end{tabular}
+\end{center}
+2 rows in set (0.00 sec)
+
+\textbf{mysql>} select count(distinct designation) from empsalary;
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+count(distinct designation) \\
+\hline
+4 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.00 sec)
+
+\textbf{mysql>} select designation, sum(salary) from empsalary group by designation having count(*)>2;
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+designation & sum(salary) \\
+\hline
+Clerk & 135000 \\
+Manager & 215000 \\
+\hline
+\end{tabular}
+\end{center}
+2 rows in set (0.00 sec)
+
+\textbf{mysql>} select sum(benefits) from empsalary where designation="Clerk";
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+sum(benefits) \\
+\hline
+32000 \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.02 sec)
+
+\section{Products}
+\label{sec:org5ae0e37}
+\textbf{mysql>} create table products(productID integer, productcode varchar(30),name varchar(30), quantity integer,price decimal(10,2));
+Query OK, 0 rows affected (0.09 sec)
+
+\textbf{mysql>} insert into products values(1001,"pen","pen red",5000,1.23);
+Query OK, 1 row affected (0.03 sec)
+
+\textbf{mysql>} insert into products values(1002,"pen","pen blue",8000,1.25);
+Query OK, 1 row affected (0.04 sec)
+
+\textbf{mysql>} insert into products values(1003,"pen","pen black",2000,1.25);
+Query OK, 1 row affected (0.03 sec)
+
+\textbf{mysql>} insert into products values(1004,"pec","pencil 2B",10000,0.48);
+Query OK, 1 row affected (0.04 sec)
+
+\textbf{mysql>} insert into products values(1005,"pec","pencil 2H",8000,0.49);
+Query OK, 1 row affected (0.03 sec)
+
+\textbf{mysql>} insert into products values(1006,"pec","pencil HB",0,9999999.99);
+Query OK, 1 row affected (0.07 sec)
+
+\textbf{mysql>} select * from products;
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+productID & productcode & name & quantity & price \\
+\hline
+1001 & pen & pen red & 5000 & 1.23 \\
+1002 & pen & pen blue & 8000 & 1.25 \\
+1003 & pen & pen black & 2000 & 1.25 \\
+1004 & pec & pencil 2B & 10000 & 0.48 \\
+1005 & pec & pencil 2H & 8000 & 0.49 \\
+1006 & pec & pencil HB & 0 & 9999999.99 \\
+\hline
+\end{tabular}
+\end{center}
+6 rows in set (0.11 sec)
+
+\textbf{mysql>} select name,price from products where price<1.0;
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+name & price \\
+\hline
+pencil 2B & 0.48 \\
+pencil 2H & 0.49 \\
+\hline
+\end{tabular}
+\end{center}
+2 rows in set (0.04 sec)
+
+\textbf{mysql>} select name,quantity from products where quantity <= 2000;
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+name & quantity \\
+\hline
+pen black & 2000 \\
+pencil HB & 0 \\
+\hline
+\end{tabular}
+\end{center}
+2 rows in set (0.00 sec)
+
+\textbf{mysql>} select name,price from products where productcode="pen";
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+name & price \\
+\hline
+pen red & 1.23 \\
+pen blue & 1.25 \\
+pen black & 1.25 \\
+\hline
+\end{tabular}
+\end{center}
+3 rows in set (0.01 sec)
+
+\textbf{mysql>} select name,price from products where name like "pencil\%";
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+name & price \\
+\hline
+pencil 2B & 0.48 \\
+pencil 2H & 0.49 \\
+pencil HB & 9999999.99 \\
+\hline
+\end{tabular}
+\end{center}
+3 rows in set (0.00 sec)
+
+\textbf{mysql>} select name,price from products where name like "p\_\%";
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+name & price \\
+\hline
+pen red & 1.23 \\
+pen blue & 1.25 \\
+pen black & 1.25 \\
+pencil 2B & 0.48 \\
+pencil 2H & 0.49 \\
+pencil HB & 9999999.99 \\
+\hline
+\end{tabular}
+\end{center}
+6 rows in set (0.00 sec)
+
+\textbf{mysql>} select*from products where quantity>=5000 and name like "pen\%";
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+productID & productcode & name & quantity & price \\
+\hline
+1001 & pen & pen red & 5000 & 1.23 \\
+1002 & pen & pen blue & 8000 & 1.25 \\
+1004 & pec & pencil 2B & 10000 & 0.48 \\
+1005 & pec & pencil 2H & 8000 & 0.49 \\
+\hline
+\end{tabular}
+\end{center}
+4 rows in set (0.00 sec)
+
+\textbf{mysql>} select*from products where quantity>=5000 and name like "pen\%" and price <1.24;
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+productID & productcode & name & quantity & price \\
+\hline
+1001 & pen & pen red & 5000 & 1.23 \\
+1004 & pec & pencil 2B & 10000 & 0.48 \\
+1005 & pec & pencil 2H & 8000 & 0.49 \\
+\hline
+\end{tabular}
+\end{center}
+3 rows in set (0.00 sec)
+
+\textbf{mysql>} select*from products where not(quantity>=5000 and name like "pen\%");
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+productID & productcode & name & quantity & price \\
+\hline
+1003 & pen & pen black & 2000 & 1.25 \\
+1006 & pec & pencil HB & 0 & 9999999.99 \\
+\hline
+\end{tabular}
+\end{center}
+2 rows in set (0.00 sec)
+
+\textbf{mysql>} select*from products where name in("pen red","pen black");
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+productID & productcode & name & quantity & price \\
+\hline
+1001 & pen & pen red & 5000 & 1.23 \\
+1003 & pen & pen black & 2000 & 1.25 \\
+\hline
+\end{tabular}
+\end{center}
+2 rows in set (0.00 sec)
+
+\textbf{mysql>} select*from products where (price between 1.0 and 2.0) or (quantity between 1000 and 2000);
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+productID & productcode & name & quantity & price \\
+\hline
+1001 & pen & pen red & 5000 & 1.23 \\
+1002 & pen & pen blue & 8000 & 1.25 \\
+1003 & pen & pen black & 2000 & 1.25 \\
+\hline
+\end{tabular}
+\end{center}
+3 rows in set (0.08 sec)
+
+\textbf{mysql>} select*from products where not((price between 1.0 and 2.0) or (quantity between 1000 and 2000));
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+productID & productcode & name & quantity & price \\
+\hline
+1004 & pec & pencil 2B & 10000 & 0.48 \\
+1005 & pec & pencil 2H & 8000 & 0.49 \\
+1006 & pec & pencil HB & 0 & 9999999.99 \\
+\hline
+\end{tabular}
+\end{center}
+3 rows in set (0.00 sec)
+
+\textbf{mysql>} insert into products values(1006,null,null,null,null);
+Query OK, 1 row affected (0.13 sec)
+
+\textbf{mysql>} select*from products where productcode is null;
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+productID & productcode & name & quantity & price \\
+\hline
+1006 & NULL & NULL & NULL & NULL \\
+\hline
+\end{tabular}
+\end{center}
+1 row in set (0.00 sec)
+
+\textbf{mysql>} select*from products where productcode= null;
+Empty set (0.00 sec)
+
+\section{Sender and Recipient}
+\label{sec:org07584f5}
+\textbf{mysql>} create table sender(senderID varchar(20) primary key, sendername varchar(20),senderaddress varchar(30),sendercity varchar(30));
+Query OK, 0 rows affected (0.36 sec)
+
+\textbf{mysql>} insert into sender values("ND01","R Jain","2,ABC Appts","New Delhi");
+Query OK, 1 row affected (0.15 sec)
+
+\textbf{mysql>} insert into sender values("MU02","H Sinha","12 Newton","Mumbai");
+Query OK, 1 row affected (0.03 sec)
+
+\textbf{mysql>} insert into sender values("MU15","S Jha","27/A Park Street","Mumbai");
+Query OK, 1 row affected (0.04 sec)
+
+\textbf{mysql>} insert into sender values("ND50","T Prasad","122-K,SDA","New Delhi");
+Query OK, 1 row affected (0.04 sec)
+
+\textbf{mysql>} create table recepient(recID varchar(10), senderID varchar(20), recname varchar(30),recaddress varchar (20),reccity varchar(20),foreign key(senderID) references sender(senderID));
+Query OK, 0 rows affected (0.10 sec)
+
+\textbf{mysql>} insert into recepient values("KO05","ND01","R Bajpayee","5,Central Avenue","Kolkata");
+Query OK, 1 row affected (0.05 sec)
+
+\textbf{mysql>} insert into recepient values("ND08","MU02","S Mahajan","116,A Vihar","New Delhi");
+Query OK, 1 row affected (0.14 sec)
+
+\textbf{mysql>} insert into recepient values("MU19","ND01","H Singh","2A,Andheri East","Mumbai");
+Query OK, 1 row affected (0.04 sec)
+
+\textbf{mysql>} insert into recepient values("MU32","MU15","P k Swamy","B5, CS Terminus","Mumbai");
+Query OK, 1 row affected (0.04 sec)
+
+\textbf{mysql>} insert into recepient values("ND48","ND50","S Tripathi","13,B1D,MayurVihar","New Delhi");
+Query OK, 1 row affected (0.13 sec)
+
+\textbf{mysql>} select*from sender where sendercity="Mumbai";
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+senderID & sendername & senderaddress & sendercity \\
+\hline
+MU02 & H Sinha & 12 Newton & Mumbai \\
+MU15 & S Jha & 27/A Park Street & Mumbai \\
+\hline
+\end{tabular}
+\end{center}
+2 rows in set (0.14 sec)
+
+\textbf{mysql>} select recID, sendername,senderaddress,recname,recaddress from sender,recepient where sender.senderID=recepient.senderID;
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+recID & sendername & senderaddress & recname & recaddress \\
+\hline
+ND08 & H Sinha & 12 Newton & S Mahajan & 116,A Vihar \\
+MU32 & S Jha & 27/A Park Street & P k Swamy & B5, CS Terminus \\
+KO05 & R Jain & 2,ABC Appts & R Bajpayee & 5,Central Avenue \\
+MU19 & R Jain & 2,ABC Appts & H Singh & 2A,Andheri East \\
+ND48 & T Prasad & 122-K,SDA & S Tripathi & 13,B1D,MayurVihar \\
+\hline
+\end{tabular}
+\end{center}
+5 rows in set (0.00 sec)
+
+\textbf{mysql>} select*from recepient order by recname;
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+recID & senderID & recname & recaddress & reccity \\
+\hline
+MU19 & ND01 & H Singh & 2A,Andheri East & Mumbai \\
+MU32 & MU15 & P k Swamy & B5, CS Terminus & Mumbai \\
+KO05 & ND01 & R Bajpayee & 5,Central Avenue & Kolkata \\
+ND08 & MU02 & S Mahajan & 116,A Vihar & New Delhi \\
+ND48 & ND50 & S Tripathi & 13,B1D,MayurVihar & New Delhi \\
+\hline
+\end{tabular}
+\end{center}
+5 rows in set (0.00 sec)
+
+\textbf{mysql>} select count(recname),reccity from recepient group by reccity;
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+count(recname) & reccity \\
+\hline
+1 & Kolkata \\
+2 & Mumbai \\
+2 & New Delhi \\
+\hline
+\end{tabular}
+\end{center}
+3 rows in set (0.04 sec)
+
+\textbf{mysql>} select distinct sendercity from sender;
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+sendercity \\
+\hline
+Mumbai \\
+New Delhi \\
+\hline
+\end{tabular}
+\end{center}
+2 rows in set (0.00 sec)
+
+\textbf{mysql>} select recname,recaddress from recepient where reccity not in("Mumbai","Kolkata");
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+recname & recaddress \\
+\hline
+S Mahajan & 116,A Vihar \\
+S Tripathi & 13,B1D,MayurVihar \\
+\hline
+\end{tabular}
+\end{center}
+2 rows in set (0.00 sec)
+
+\textbf{mysql>} select recID,recname from recepient where senderID="MU02" or senderID="ND50";
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+recID & recname \\
+\hline
+ND08 & S Mahajan \\
+ND48 & S Tripathi \\
+\hline
+\end{tabular}
+\end{center}
+2 rows in set (0.00 sec)
+
+\textbf{mysql>} select A.sendername, B.recname from sender A,recepient B where A.senderID=B.senderID and B.reccity="Mumbai";
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+sendername & recname \\
+\hline
+S Jha & P k Swamy \\
+R Jain & H Singh \\
+\hline
+\end{tabular}
+\end{center}
+2 rows in set (0.00 sec)
+\end{document}
