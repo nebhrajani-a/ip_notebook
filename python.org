@@ -220,6 +220,7 @@ Bookmarks tree.
              print(a[::-1,::-1])
            #+END_SRC
 
+\newpage
 * Pandas
 ** Series
 #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos

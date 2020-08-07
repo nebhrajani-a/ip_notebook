@@ -1,4 +1,4 @@
-% Created 2020-08-07 Fri 13:51
+% Created 2020-08-07 Fri 14:32
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -35,9 +35,9 @@
 \newpage
 
 \section{Preamble}
-\label{sec:orga7438a6}
+\label{sec:org1b723d5}
 \subsection{Notebook Conventions}
-\label{sec:org7398d7d}
+\label{sec:org5a66879}
 All code in this notebook is in Python unless specified otherwise.
 All code is syntax-highlighted, placed in boxes, and is line
 numbered. The output of the interpreter on \texttt{stdout} is printed directly below it,
@@ -56,7 +56,7 @@ It is recommended that you navigate using the hyperlinked TOC or the Adobe
 Bookmarks tree.
 
 \subsection{Hardware and Software Used}
-\label{sec:org82bf0f5}
+\label{sec:org8871f0c}
 
  This notebook is written in an \texttt{org-mode} file and exported to PDF via \LaTeX{}, Org version 9.3.6 on
 GNU Emacs 25.2.2 (x86\_ 64-pc-linux-gnu, GTK+ Version 3.22.21) of
@@ -66,7 +66,7 @@ throughout unless specified otherwise. For the Org or \LaTeX{} source, contact
 \href{mailto:aditya.v.nebhrajani@gmail.com}{aditya.v.nebhrajani@gmail.com}.
 
 \subsection{Acknowledgements}
-\label{sec:org7c3eaee}
+\label{sec:org37689ac}
 I am grateful to the FSF, the GNU Project, the Linux foundation,
 the Emacs, StackExchange and FLOSS communities, and my father,
 who taught me that a world outside commercialized technology does
@@ -74,9 +74,9 @@ exist and thrive.
 \newpage
 
 \section{NumPy}
-\label{sec:org8cfc526}
+\label{sec:orgc563831}
 \subsection{Worksheet 2020-07-26}
-\label{sec:orgfaf2c0e}
+\label{sec:orgae0148f}
 
 \begin{enumerate}
 \item Create an ndarray with values ranging from 10 to 49 each spaced with a difference of 3.
@@ -352,10 +352,11 @@ print(a[::-1,::-1])
 \end{enumerate}
 \end{enumerate}
 
+\newpage
 \section{Pandas}
-\label{sec:org29f99c1}
+\label{sec:orgd29c60f}
 \subsection{Series}
-\label{sec:orgb61d5ec}
+\label{sec:org041148b}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Import numpy and pandas
 import pandas as pd
@@ -714,7 +715,7 @@ Name: animal, dtype: bool
 \end{minted}
 
 \subsection{Dataframe}
-\label{sec:orgeda8526}
+\label{sec:orgfe78b37}
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Empty dataframe
@@ -795,14 +796,14 @@ print(d_frame)
 
 \begin{verbatim}
           0         1         2         3
-0 -0.602824 -0.366028 -0.615196 -0.590926
-1 -1.657082  0.025167 -0.427653 -1.061247
-2 -1.391155  1.672177  0.826779  0.044710
-3  1.288528 -0.005017  0.175491  0.077322
-4  0.320783  1.432723 -1.846750  0.062150
-5 -2.069555 -1.134436  1.655509  2.853486
-6 -2.175707 -1.590550 -1.465388  0.837178
-7 -0.060003  0.037923 -0.237129 -0.401120
+0  0.351649  0.126549  0.802830  0.103679
+1  0.836484 -0.924929 -0.994042 -0.592746
+2 -0.154570 -1.661506  0.905778 -0.428901
+3 -0.584357  0.951463  0.138540  0.127998
+4 -1.101079 -0.350253 -0.266006  1.390772
+5  0.749946  0.398318 -0.576619 -2.274114
+6 -1.391464 -0.775406  2.653841 -0.692140
+7 -2.543200  0.575712 -0.539752 -0.641526
 \end{verbatim}
 
 
