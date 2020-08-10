@@ -1,4 +1,4 @@
-% Created 2020-08-10 Mon 13:41
+% Created 2020-08-10 Mon 14:09
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -35,9 +35,9 @@
 \newpage
 
 \section{Preamble}
-\label{sec:org1b96a49}
+\label{sec:org69621ca}
 \subsection{Notebook Conventions}
-\label{sec:org8c52ef3}
+\label{sec:org126712a}
 All code in this notebook is in Python unless specified otherwise.
 All code is syntax-highlighted, placed in boxes, and is line
 numbered. The output of the interpreter on \texttt{stdout} is printed directly below it,
@@ -56,7 +56,7 @@ It is recommended that you navigate using the hyperlinked TOC or the Adobe
 Bookmarks tree.
 
 \subsection{Hardware and Software Used}
-\label{sec:orgcb9df6a}
+\label{sec:org433f212}
 
  This notebook is written in an \texttt{org-mode} file and exported to PDF via \LaTeX{}, Org version 9.3.6 on
 GNU Emacs 25.2.2 (x86\_ 64-pc-linux-gnu, GTK+ Version 3.22.21) of
@@ -66,7 +66,7 @@ throughout unless specified otherwise. For the Org or \LaTeX{} source, contact
 \href{mailto:aditya.v.nebhrajani@gmail.com}{aditya.v.nebhrajani@gmail.com}.
 
 \subsection{Acknowledgements}
-\label{sec:org919f3a2}
+\label{sec:org0a7891b}
 I am grateful to the FSF, the GNU Project, the Linux foundation,
 the Emacs, StackExchange and FLOSS communities, and my father,
 who taught me that a world outside commercialized technology does
@@ -74,9 +74,9 @@ exist and thrive.
 \newpage
 
 \section{NumPy}
-\label{sec:org9cebd1c}
+\label{sec:org624a9a6}
 \subsection{Worksheet 2020-07-26}
-\label{sec:org5d8bce1}
+\label{sec:org9418c04}
 
 \begin{enumerate}
 \item Create an ndarray with values ranging from 10 to 49 each spaced with a difference of 3.
@@ -354,9 +354,9 @@ print(a[::-1,::-1])
 
 \newpage
 \section{Pandas}
-\label{sec:org9d542d2}
+\label{sec:org33f08ff}
 \subsection{Series}
-\label{sec:org41bb866}
+\label{sec:org975ce0a}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Import numpy and pandas
 import pandas as pd
@@ -715,7 +715,7 @@ Name: animal, dtype: bool
 \end{minted}
 
 \subsection{Dataframe}
-\label{sec:org3561bb6}
+\label{sec:org69a8bd3}
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Empty dataframe
@@ -797,14 +797,14 @@ print(d_frame)
 
 \begin{verbatim}
           0         1         2         3
-0 -1.067210 -0.641223 -0.365953 -0.142540
-1 -0.592651  0.469174  0.890560  0.319794
-2  1.184533 -0.933480 -1.382302 -0.469527
-3  1.412379 -0.864983 -0.422046  0.937044
-4 -0.713212  1.483705  0.628708 -0.435091
-5 -0.793572  1.826652 -0.778544 -0.059586
-6 -0.272879  1.586516 -0.663512  1.368802
-7 -0.240090  0.531833 -0.314350  0.363192
+0 -2.015128  0.313756  0.971252  0.687543
+1  0.736305  0.582047  0.171059  0.187363
+2  0.983482 -0.118117 -0.548964  0.008497
+3  0.739370  0.578854 -0.592963  1.801482
+4  0.485355 -0.956433  0.952777  0.297853
+5  2.063446 -1.344621 -0.421031  1.592392
+6  0.355908  0.432542  1.276645  0.438290
+7  1.044685 -0.695084 -0.227355  0.221908
 \end{verbatim}
 
 
@@ -872,11 +872,11 @@ table = {'name': ['Aditya', 'Aryan', 'Nebhrajani', 'Sahej'],
 data1 = pd.DataFrame(table)
 print(data1)
 
-print('\n___ After Changing the Column Order___')
+print('\n After Changing the Column Order')
 data2 = pd.DataFrame(table, columns = ['name', 'Profession', 'Salary',
                                        'Age'])
 print(data2)
-print('\n___ Using Wrong Column ___')
+print('\n Using Wrong Column ')
 data3 = pd.DataFrame(table, columns = ['name', 'Qualification', 'Salary',
                                        'Age'])
 print(data3)
@@ -889,14 +889,14 @@ print(data3)
 2   30      Admin   900000  Nebhrajani
 3   26         HR  1100000       Sahej
 
-___ After Changing the Column Order___
+ After Changing the Column Order
          name Profession   Salary  Age
 0      Aditya  Developer  1000000   25
 1       Aryan    Analyst  1200000   32
 2  Nebhrajani      Admin   900000   30
 3       Sahej         HR  1100000   26
 
-___ Using Wrong Column ___
+ Using Wrong Column
          name Qualification   Salary  Age
 0      Aditya           NaN  1000000   25
 1       Aryan           NaN  1200000   32
@@ -916,11 +916,11 @@ table = {'name': ['Aditya', 'Aryan', 'Nebhrajani', 'Sahej'],
 data = pd.DataFrame(table)
 print(data)
 
-print('\n___Setting name as an index___')
+print('\nSetting name as an index')
 new_data = data.set_index('name')
 print(new_data)
 
-print('\n___Return Index Aditya Details___')
+print('\nReturn Index Aditya Details')
 print(new_data.loc['Aditya'])
 \end{minted}
 
@@ -931,7 +931,7 @@ print(new_data.loc['Aditya'])
 2   30      Admin   900000  Nebhrajani
 3   26         HR  1100000       Sahej
 
-___Setting name as an index___
+Setting name as an index
             Age Profession   Salary
 name
 Aditya       25  Developer  1000000
@@ -939,7 +939,7 @@ Aryan        32    Analyst  1200000
 Nebhrajani   30      Admin   900000
 Sahej        26         HR  1100000
 
-___Return Index Aditya Details___
+Return Index Aditya Details
 Age                  25
 Profession    Developer
 Salary          1000000
@@ -956,15 +956,15 @@ table = {'name': ['Aditya', 'Aryan', 'Nebhrajani', 'Sahej'],
 
 data = pd.DataFrame(table)
 print(data)
-print('\n___Shape and Size of a DataFrame___')
+print('\nShape and Size of a DataFrame')
 print(data.shape)
 data2 = pd.DataFrame(table, columns = ['name', 'Profession', 'Salary',
                                        'Age'])
 data3 = pd.DataFrame(table, columns = ['name', 'Qualification', 'Salary',
                                        'Age'])
-print('___Data2 Values___ ')
+print('Data2 Values ')
 print(data2.values)
-print('\n___Data3 Values___ ')
+print('\nData3 Values ')
 print(data3.values)
 data1 = pd.DataFrame(table)
 table = {'Age': [25, 32, 30, 26],
@@ -982,7 +982,7 @@ data4.columns.name = 'Customers Information'
 print(data4)
 data1 = pd.DataFrame(table)
 print(data1)
-print('\n___describe function result___')
+print('\nDescribe function result')
 print(data1.describe())
 \end{minted}
 
@@ -993,15 +993,15 @@ print(data1.describe())
 2   35  700000  Nebhrajani
 3   26  110000       Sahej
 
-___Shape and Size of a DataFrame___
+Shape and Size of a DataFrame
 (4, 3)
-___Data2 Values___
+Data2 Values
 [['Aditya' nan 100000 25]
  ['Aryan' nan 120000 31]
  ['Nebhrajani' nan 700000 35]
  ['Sahej' nan 110000 26]]
 
-___Data3 Values___
+Data3 Values
 [['Aditya' nan 100000 25]
  ['Aryan' nan 120000 31]
  ['Nebhrajani' nan 700000 35]
@@ -1037,7 +1037,7 @@ Cust No
 2   30   900000
 3   26  1100000
 
-___describe function result___
+Describe function result
              Age        Salary
 count   4.000000  4.000000e+00
 mean   28.250000  1.050000e+06
