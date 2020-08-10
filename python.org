@@ -446,7 +446,7 @@ Bookmarks tree.
     # Dataframe from dict
     import pandas as pd
 
-    table = {'name': ['John', 'Mike', 'Nebhrajani', 'Tracy'],
+    table = {'name': ['Aditya', 'Aryan', 'Nebhrajani', 'Sahej'],
             'Salary':[1000000, 1200000, 900000, 1100000]}
 
     data = pd.DataFrame(table)
@@ -476,7 +476,7 @@ Bookmarks tree.
    # Messing with columns
    import pandas as pd
 
-   table = {'name': ['John', 'Mike', 'Nebhrajani', 'Tracy'],
+   table = {'name': ['Aditya', 'Aryan', 'Nebhrajani', 'Sahej'],
             'Age': [25, 32, 30, 26],
             'Profession': ['Developer', 'Analyst', 'Admin', 'HR'],
             'Salary':[1000000, 1200000, 900000, 1100000]
@@ -500,7 +500,7 @@ Bookmarks tree.
     # Dataframe indexing
     import pandas as pd
 
-    table = {'name': ['John', 'Mike', 'Nebhrajani', 'Tracy'],
+    table = {'name': ['Aditya', 'Aryan', 'Nebhrajani', 'Sahej'],
              'Age': [25, 32, 30, 26],
              'Profession': ['Developer', 'Analyst', 'Admin', 'HR'],
              'Salary':[1000000, 1200000, 900000, 1100000]
@@ -508,10 +508,51 @@ Bookmarks tree.
     data = pd.DataFrame(table)
     print(data)
 
-    print('\n---Setting name as an index---')
+    print('\n___Setting name as an index___')
     new_data = data.set_index('name')
     print(new_data)
 
-    print('\n---Return Index John Details---')
-    print(new_data.loc['John'])
+    print('\n___Return Index Aditya Details___')
+    print(new_data.loc['Aditya'])
+ #+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+   import pandas as pd
+
+   table = {'name': ['Aditya', 'Aryan', 'Nebhrajani', 'Sahej'],
+            'Age': [25, 31, 35, 26],
+            'Salary':[100000, 120000, 700000, 110000]
+               }
+
+   data = pd.DataFrame(table)
+   print(data)
+   print('\n___Shape and Size of a DataFrame___')
+   print(data.shape)
+   data2 = pd.DataFrame(table, columns = ['name', 'Profession', 'Salary',
+                                          'Age'])
+   data3 = pd.DataFrame(table, columns = ['name', 'Qualification', 'Salary',
+                                          'Age'])
+   print('___Data2 Values___ ')
+   print(data2.values)
+   print('\n___Data3 Values___ ')
+   print(data3.values)
+   data1 = pd.DataFrame(table)
+   table = {'Age': [25, 32, 30, 26],
+            'Salary':[1000000, 1200000, 900000, 1100000]
+            }
+   data4 = pd.DataFrame(table)
+   data1.index.name = 'Emp No'
+   print(data1)
+   print()
+   data4.index.name = 'Cust No'
+   print(data4)
+   data1.columns.name = 'Employee Details'
+   print(data1)
+   data4.columns.name = 'Customers Information'
+   print(data4)
+   data1 = pd.DataFrame(table)
+   print(data1)
+   print('\n___describe function result___')
+   print(data1.describe())
  #+END_SRC

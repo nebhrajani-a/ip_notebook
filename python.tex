@@ -1,4 +1,4 @@
-% Created 2020-08-07 Fri 14:32
+% Created 2020-08-10 Mon 13:41
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -35,9 +35,9 @@
 \newpage
 
 \section{Preamble}
-\label{sec:org1b723d5}
+\label{sec:org1b96a49}
 \subsection{Notebook Conventions}
-\label{sec:org5a66879}
+\label{sec:org8c52ef3}
 All code in this notebook is in Python unless specified otherwise.
 All code is syntax-highlighted, placed in boxes, and is line
 numbered. The output of the interpreter on \texttt{stdout} is printed directly below it,
@@ -56,7 +56,7 @@ It is recommended that you navigate using the hyperlinked TOC or the Adobe
 Bookmarks tree.
 
 \subsection{Hardware and Software Used}
-\label{sec:org8871f0c}
+\label{sec:orgcb9df6a}
 
  This notebook is written in an \texttt{org-mode} file and exported to PDF via \LaTeX{}, Org version 9.3.6 on
 GNU Emacs 25.2.2 (x86\_ 64-pc-linux-gnu, GTK+ Version 3.22.21) of
@@ -66,7 +66,7 @@ throughout unless specified otherwise. For the Org or \LaTeX{} source, contact
 \href{mailto:aditya.v.nebhrajani@gmail.com}{aditya.v.nebhrajani@gmail.com}.
 
 \subsection{Acknowledgements}
-\label{sec:org37689ac}
+\label{sec:org919f3a2}
 I am grateful to the FSF, the GNU Project, the Linux foundation,
 the Emacs, StackExchange and FLOSS communities, and my father,
 who taught me that a world outside commercialized technology does
@@ -74,9 +74,9 @@ exist and thrive.
 \newpage
 
 \section{NumPy}
-\label{sec:orgc563831}
+\label{sec:org9cebd1c}
 \subsection{Worksheet 2020-07-26}
-\label{sec:orgae0148f}
+\label{sec:org5d8bce1}
 
 \begin{enumerate}
 \item Create an ndarray with values ranging from 10 to 49 each spaced with a difference of 3.
@@ -354,9 +354,9 @@ print(a[::-1,::-1])
 
 \newpage
 \section{Pandas}
-\label{sec:orgd29c60f}
+\label{sec:org9d542d2}
 \subsection{Series}
-\label{sec:org041148b}
+\label{sec:org41bb866}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Import numpy and pandas
 import pandas as pd
@@ -715,7 +715,7 @@ Name: animal, dtype: bool
 \end{minted}
 
 \subsection{Dataframe}
-\label{sec:orgfe78b37}
+\label{sec:org3561bb6}
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Empty dataframe
@@ -730,6 +730,7 @@ Empty DataFrame
 Columns: []
 Index: []
 \end{verbatim}
+
 
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
@@ -796,14 +797,14 @@ print(d_frame)
 
 \begin{verbatim}
           0         1         2         3
-0  0.351649  0.126549  0.802830  0.103679
-1  0.836484 -0.924929 -0.994042 -0.592746
-2 -0.154570 -1.661506  0.905778 -0.428901
-3 -0.584357  0.951463  0.138540  0.127998
-4 -1.101079 -0.350253 -0.266006  1.390772
-5  0.749946  0.398318 -0.576619 -2.274114
-6 -1.391464 -0.775406  2.653841 -0.692140
-7 -2.543200  0.575712 -0.539752 -0.641526
+0 -1.067210 -0.641223 -0.365953 -0.142540
+1 -0.592651  0.469174  0.890560  0.319794
+2  1.184533 -0.933480 -1.382302 -0.469527
+3  1.412379 -0.864983 -0.422046  0.937044
+4 -0.713212  1.483705  0.628708 -0.435091
+5 -0.793572  1.826652 -0.778544 -0.059586
+6 -0.272879  1.586516 -0.663512  1.368802
+7 -0.240090  0.531833 -0.314350  0.363192
 \end{verbatim}
 
 
@@ -811,7 +812,7 @@ print(d_frame)
 # Dataframe from dict
 import pandas as pd
 
-table = {'name': ['John', 'Mike', 'Nebhrajani', 'Tracy'],
+table = {'name': ['Aditya', 'Aryan', 'Nebhrajani', 'Sahej'],
         'Salary':[1000000, 1200000, 900000, 1100000]}
 
 data = pd.DataFrame(table)
@@ -820,10 +821,10 @@ print(data)
 
 \begin{verbatim}
     Salary        name
-0  1000000        John
-1  1200000        Mike
+0  1000000      Aditya
+1  1200000       Aryan
 2   900000  Nebhrajani
-3  1100000       Tracy
+3  1100000       Sahej
 \end{verbatim}
 
 
@@ -862,7 +863,7 @@ j         1      Jonas     yes   19.0
 # Messing with columns
 import pandas as pd
 
-table = {'name': ['John', 'Mike', 'Nebhrajani', 'Tracy'],
+table = {'name': ['Aditya', 'Aryan', 'Nebhrajani', 'Sahej'],
          'Age': [25, 32, 30, 26],
          'Profession': ['Developer', 'Analyst', 'Admin', 'HR'],
          'Salary':[1000000, 1200000, 900000, 1100000]
@@ -883,31 +884,31 @@ print(data3)
 
 \begin{verbatim}
    Age Profession   Salary        name
-0   25  Developer  1000000        John
-1   32    Analyst  1200000        Mike
+0   25  Developer  1000000      Aditya
+1   32    Analyst  1200000       Aryan
 2   30      Admin   900000  Nebhrajani
-3   26         HR  1100000       Tracy
+3   26         HR  1100000       Sahej
 
 ___ After Changing the Column Order___
          name Profession   Salary  Age
-0        John  Developer  1000000   25
-1        Mike    Analyst  1200000   32
+0      Aditya  Developer  1000000   25
+1       Aryan    Analyst  1200000   32
 2  Nebhrajani      Admin   900000   30
-3       Tracy         HR  1100000   26
+3       Sahej         HR  1100000   26
 
 ___ Using Wrong Column ___
          name Qualification   Salary  Age
-0        John           NaN  1000000   25
-1        Mike           NaN  1200000   32
+0      Aditya           NaN  1000000   25
+1       Aryan           NaN  1200000   32
 2  Nebhrajani           NaN   900000   30
-3       Tracy           NaN  1100000   26
+3       Sahej           NaN  1100000   26
 \end{verbatim}
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Dataframe indexing
 import pandas as pd
 
-table = {'name': ['John', 'Mike', 'Nebhrajani', 'Tracy'],
+table = {'name': ['Aditya', 'Aryan', 'Nebhrajani', 'Sahej'],
          'Age': [25, 32, 30, 26],
          'Profession': ['Developer', 'Analyst', 'Admin', 'HR'],
          'Salary':[1000000, 1200000, 900000, 1100000]
@@ -915,33 +916,136 @@ table = {'name': ['John', 'Mike', 'Nebhrajani', 'Tracy'],
 data = pd.DataFrame(table)
 print(data)
 
-print('\n---Setting name as an index---')
+print('\n___Setting name as an index___')
 new_data = data.set_index('name')
 print(new_data)
 
-print('\n---Return Index John Details---')
-print(new_data.loc['John'])
+print('\n___Return Index Aditya Details___')
+print(new_data.loc['Aditya'])
 \end{minted}
 
 \begin{verbatim}
    Age Profession   Salary        name
-0   25  Developer  1000000        John
-1   32    Analyst  1200000        Mike
+0   25  Developer  1000000      Aditya
+1   32    Analyst  1200000       Aryan
 2   30      Admin   900000  Nebhrajani
-3   26         HR  1100000       Tracy
+3   26         HR  1100000       Sahej
 
----Setting name as an index---
+___Setting name as an index___
             Age Profession   Salary
 name
-John         25  Developer  1000000
-Mike         32    Analyst  1200000
+Aditya       25  Developer  1000000
+Aryan        32    Analyst  1200000
 Nebhrajani   30      Admin   900000
-Tracy        26         HR  1100000
+Sahej        26         HR  1100000
 
----Return Index John Details---
+___Return Index Aditya Details___
 Age                  25
 Profession    Developer
 Salary          1000000
-Name: John, dtype: object
+Name: Aditya, dtype: object
+\end{verbatim}
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+import pandas as pd
+
+table = {'name': ['Aditya', 'Aryan', 'Nebhrajani', 'Sahej'],
+         'Age': [25, 31, 35, 26],
+         'Salary':[100000, 120000, 700000, 110000]
+            }
+
+data = pd.DataFrame(table)
+print(data)
+print('\n___Shape and Size of a DataFrame___')
+print(data.shape)
+data2 = pd.DataFrame(table, columns = ['name', 'Profession', 'Salary',
+                                       'Age'])
+data3 = pd.DataFrame(table, columns = ['name', 'Qualification', 'Salary',
+                                       'Age'])
+print('___Data2 Values___ ')
+print(data2.values)
+print('\n___Data3 Values___ ')
+print(data3.values)
+data1 = pd.DataFrame(table)
+table = {'Age': [25, 32, 30, 26],
+         'Salary':[1000000, 1200000, 900000, 1100000]
+         }
+data4 = pd.DataFrame(table)
+data1.index.name = 'Emp No'
+print(data1)
+print()
+data4.index.name = 'Cust No'
+print(data4)
+data1.columns.name = 'Employee Details'
+print(data1)
+data4.columns.name = 'Customers Information'
+print(data4)
+data1 = pd.DataFrame(table)
+print(data1)
+print('\n___describe function result___')
+print(data1.describe())
+\end{minted}
+
+\begin{verbatim}
+   Age  Salary        name
+0   25  100000      Aditya
+1   31  120000       Aryan
+2   35  700000  Nebhrajani
+3   26  110000       Sahej
+
+___Shape and Size of a DataFrame___
+(4, 3)
+___Data2 Values___
+[['Aditya' nan 100000 25]
+ ['Aryan' nan 120000 31]
+ ['Nebhrajani' nan 700000 35]
+ ['Sahej' nan 110000 26]]
+
+___Data3 Values___
+[['Aditya' nan 100000 25]
+ ['Aryan' nan 120000 31]
+ ['Nebhrajani' nan 700000 35]
+ ['Sahej' nan 110000 26]]
+        Age  Salary        name
+Emp No
+0        25  100000      Aditya
+1        31  120000       Aryan
+2        35  700000  Nebhrajani
+3        26  110000       Sahej
+()
+         Age   Salary
+Cust No
+0         25  1000000
+1         32  1200000
+2         30   900000
+3         26  1100000
+Employee Details  Age  Salary        name
+Emp No
+0                  25  100000      Aditya
+1                  31  120000       Aryan
+2                  35  700000  Nebhrajani
+3                  26  110000       Sahej
+Customers Information  Age   Salary
+Cust No
+0                       25  1000000
+1                       32  1200000
+2                       30   900000
+3                       26  1100000
+   Age   Salary
+0   25  1000000
+1   32  1200000
+2   30   900000
+3   26  1100000
+
+___describe function result___
+             Age        Salary
+count   4.000000  4.000000e+00
+mean   28.250000  1.050000e+06
+std     3.304038  1.290994e+05
+min    25.000000  9.000000e+05
+25%    25.750000  9.750000e+05
+50%    28.000000  1.050000e+06
+75%    30.500000  1.125000e+06
+max    32.000000  1.200000e+06
 \end{verbatim}
 \end{document}
