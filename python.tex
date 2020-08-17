@@ -1,4 +1,4 @@
-% Created 2020-08-10 Mon 14:09
+% Created 2020-08-17 Mon 13:48
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -15,7 +15,7 @@
 \usepackage{capt-of}
 \usepackage[hidelinks]{hyperref}
 \usepackage{minted}
-\usepackage[a4paper, total={6in, 9.1in}]{geometry}
+\usepackage[a4paper, total={6in, 10.2in}]{geometry}
 \usemintedstyle{emacs}
 \author{Nebhrajani A. V.}
 \date{}
@@ -35,9 +35,9 @@
 \newpage
 
 \section{Preamble}
-\label{sec:org69621ca}
+\label{sec:org413a0ec}
 \subsection{Notebook Conventions}
-\label{sec:org126712a}
+\label{sec:org904371f}
 All code in this notebook is in Python unless specified otherwise.
 All code is syntax-highlighted, placed in boxes, and is line
 numbered. The output of the interpreter on \texttt{stdout} is printed directly below it,
@@ -56,7 +56,7 @@ It is recommended that you navigate using the hyperlinked TOC or the Adobe
 Bookmarks tree.
 
 \subsection{Hardware and Software Used}
-\label{sec:org433f212}
+\label{sec:org7fddaf7}
 
  This notebook is written in an \texttt{org-mode} file and exported to PDF via \LaTeX{}, Org version 9.3.6 on
 GNU Emacs 25.2.2 (x86\_ 64-pc-linux-gnu, GTK+ Version 3.22.21) of
@@ -66,7 +66,7 @@ throughout unless specified otherwise. For the Org or \LaTeX{} source, contact
 \href{mailto:aditya.v.nebhrajani@gmail.com}{aditya.v.nebhrajani@gmail.com}.
 
 \subsection{Acknowledgements}
-\label{sec:org0a7891b}
+\label{sec:org47c114d}
 I am grateful to the FSF, the GNU Project, the Linux foundation,
 the Emacs, StackExchange and FLOSS communities, and my father,
 who taught me that a world outside commercialized technology does
@@ -74,9 +74,9 @@ exist and thrive.
 \newpage
 
 \section{NumPy}
-\label{sec:org624a9a6}
+\label{sec:orgdb49328}
 \subsection{Worksheet 2020-07-26}
-\label{sec:org9418c04}
+\label{sec:org1f14dc8}
 
 \begin{enumerate}
 \item Create an ndarray with values ranging from 10 to 49 each spaced with a difference of 3.
@@ -98,7 +98,7 @@ print(x[:2],x[:-2],x[-2:])
 \end{minted}
 
 \begin{verbatim}
-('he', 'hello wor', 'ld')
+he hello wor ld
 \end{verbatim}
 
 \item Predict the output of the following code fragments:
@@ -354,9 +354,9 @@ print(a[::-1,::-1])
 
 \newpage
 \section{Pandas}
-\label{sec:org33f08ff}
+\label{sec:orgfe1faf1}
 \subsection{Series}
-\label{sec:org975ce0a}
+\label{sec:orgb71225e}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Import numpy and pandas
 import pandas as pd
@@ -425,13 +425,13 @@ c    2.0
 d    NaN
 a    0.0
 dtype: float64
-{'kiwi': 20, 'cherries': 6000, 'apples': 500, 'oranges': 100}
+{'apples': 500, 'kiwi': 20, 'oranges': 100, 'cherries': 6000}
 
 Array Items
 apples       500
-cherries    6000
 kiwi          20
 oranges      100
+cherries    6000
 dtype: int64
 \end{verbatim}
 
@@ -715,7 +715,7 @@ Name: animal, dtype: bool
 \end{minted}
 
 \subsection{Dataframe}
-\label{sec:org69a8bd3}
+\label{sec:org2e246a6}
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Empty dataframe
@@ -797,14 +797,14 @@ print(d_frame)
 
 \begin{verbatim}
           0         1         2         3
-0 -2.015128  0.313756  0.971252  0.687543
-1  0.736305  0.582047  0.171059  0.187363
-2  0.983482 -0.118117 -0.548964  0.008497
-3  0.739370  0.578854 -0.592963  1.801482
-4  0.485355 -0.956433  0.952777  0.297853
-5  2.063446 -1.344621 -0.421031  1.592392
-6  0.355908  0.432542  1.276645  0.438290
-7  1.044685 -0.695084 -0.227355  0.221908
+0  1.377935  0.607761 -0.428618 -0.240802
+1 -0.364594 -0.636132 -1.358991  1.308245
+2 -1.873483  0.801070  1.280485 -0.828012
+3 -0.478274  1.523695 -1.278691 -0.618768
+4  1.106437 -0.877347 -1.085779 -0.308250
+5  1.122455 -0.796418 -0.057728 -0.506979
+6 -1.673939  0.680149  1.410855  0.889343
+7  0.279014 -1.559914  0.591501 -0.549156
 \end{verbatim}
 
 
@@ -820,11 +820,11 @@ print(data)
 \end{minted}
 
 \begin{verbatim}
-    Salary        name
-0  1000000      Aditya
-1  1200000       Aryan
-2   900000  Nebhrajani
-3  1100000       Sahej
+         name   Salary
+0      Aditya  1000000
+1       Aryan  1200000
+2  Nebhrajani   900000
+3       Sahej  1100000
 \end{verbatim}
 
 
@@ -846,17 +846,17 @@ print(df)
 \end{minted}
 
 \begin{verbatim}
-   attempts       name qualify  score
-a         1  Anastasia     yes   12.5
-b         3       Dima      no    9.0
-c         2  Katherine     yes   16.5
-d         3      James      no    NaN
-e         2      Emily      no    9.0
-f         3    Michael     yes   20.0
-g         1    Matthew     yes   14.5
-h         1      Laura      no    NaN
-i         2      Kevin      no    8.0
-j         1      Jonas     yes   19.0
+        name  score  attempts qualify
+a  Anastasia   12.5         1     yes
+b       Dima    9.0         3      no
+c  Katherine   16.5         2     yes
+d      James    NaN         3      no
+e      Emily    9.0         2      no
+f    Michael   20.0         3     yes
+g    Matthew   14.5         1     yes
+h      Laura    NaN         1      no
+i      Kevin    8.0         2      no
+j      Jonas   19.0         1     yes
 \end{verbatim}
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
@@ -883,11 +883,11 @@ print(data3)
 \end{minted}
 
 \begin{verbatim}
-   Age Profession   Salary        name
-0   25  Developer  1000000      Aditya
-1   32    Analyst  1200000       Aryan
-2   30      Admin   900000  Nebhrajani
-3   26         HR  1100000       Sahej
+         name  Age Profession   Salary
+0      Aditya   25  Developer  1000000
+1       Aryan   32    Analyst  1200000
+2  Nebhrajani   30      Admin   900000
+3       Sahej   26         HR  1100000
 
  After Changing the Column Order
          name Profession   Salary  Age
@@ -925,11 +925,11 @@ print(new_data.loc['Aditya'])
 \end{minted}
 
 \begin{verbatim}
-   Age Profession   Salary        name
-0   25  Developer  1000000      Aditya
-1   32    Analyst  1200000       Aryan
-2   30      Admin   900000  Nebhrajani
-3   26         HR  1100000       Sahej
+         name  Age Profession   Salary
+0      Aditya   25  Developer  1000000
+1       Aryan   32    Analyst  1200000
+2  Nebhrajani   30      Admin   900000
+3       Sahej   26         HR  1100000
 
 Setting name as an index
             Age Profession   Salary
@@ -947,6 +947,7 @@ Name: Aditya, dtype: object
 \end{verbatim}
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+# Getting columns
 import pandas as pd
 
 table = {'name': ['Aditya', 'Aryan', 'Nebhrajani', 'Sahej'],
@@ -987,11 +988,11 @@ print(data1.describe())
 \end{minted}
 
 \begin{verbatim}
-   Age  Salary        name
-0   25  100000      Aditya
-1   31  120000       Aryan
-2   35  700000  Nebhrajani
-3   26  110000       Sahej
+         name  Age  Salary
+0      Aditya   25  100000
+1       Aryan   31  120000
+2  Nebhrajani   35  700000
+3       Sahej   26  110000
 
 Shape and Size of a DataFrame
 (4, 3)
@@ -1006,25 +1007,25 @@ Data3 Values
  ['Aryan' nan 120000 31]
  ['Nebhrajani' nan 700000 35]
  ['Sahej' nan 110000 26]]
-        Age  Salary        name
+              name  Age  Salary
 Emp No
-0        25  100000      Aditya
-1        31  120000       Aryan
-2        35  700000  Nebhrajani
-3        26  110000       Sahej
-()
+0           Aditya   25  100000
+1            Aryan   31  120000
+2       Nebhrajani   35  700000
+3            Sahej   26  110000
+
          Age   Salary
 Cust No
 0         25  1000000
 1         32  1200000
 2         30   900000
 3         26  1100000
-Employee Details  Age  Salary        name
+Employee Details        name  Age  Salary
 Emp No
-0                  25  100000      Aditya
-1                  31  120000       Aryan
-2                  35  700000  Nebhrajani
-3                  26  110000       Sahej
+0                     Aditya   25  100000
+1                      Aryan   31  120000
+2                 Nebhrajani   35  700000
+3                      Sahej   26  110000
 Customers Information  Age   Salary
 Cust No
 0                       25  1000000
@@ -1047,5 +1048,211 @@ min    25.000000  9.000000e+05
 50%    28.000000  1.050000e+06
 75%    30.500000  1.125000e+06
 max    32.000000  1.200000e+06
+\end{verbatim}
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+# Getting rows using loc
+import pandas as pd
+table = {'name': ['Jai', 'Mike', 'Suresh', 'Sahej'],
+         'Age': [25, 32, 30, 26],
+         'Profession': ['Developer', 'Analyst', 'Admin', 'HR'],
+         'Salary':[1000000, 1200000, 900000, 1100000]}
+
+data = pd.DataFrame(table, index = ['a', 'b', 'c', 'd'])
+print(data)
+
+print('\n---Select b row from a DataFrame---')
+print(data.loc['b'])
+
+print('\n---Select c row from a DataFrame---')
+print(data.loc['c'])
+
+print('\n---Select b and d rows from a DataFrame---')
+print(data.loc[['b', 'd']])
+\end{minted}
+
+\begin{verbatim}
+     name  Age Profession   Salary
+a     Jai   25  Developer  1000000
+b    Mike   32    Analyst  1200000
+c  Suresh   30      Admin   900000
+d   Sahej   26         HR  1100000
+
+---Select b row from a DataFrame---
+name             Mike
+Age                32
+Profession    Analyst
+Salary        1200000
+Name: b, dtype: object
+
+---Select c row from a DataFrame---
+name          Suresh
+Age               30
+Profession     Admin
+Salary        900000
+Name: c, dtype: object
+
+---Select b and d rows from a DataFrame---
+    name  Age Profession   Salary
+b   Mike   32    Analyst  1200000
+d  Sahej   26         HR  1100000
+\end{verbatim}
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+# Getting columns using loc
+import pandas as pd
+table = {'Name': ['Abhimanyu', 'Jai', 'Suresh', 'Sahej', 'Shail'],
+         'Age': [35, 25, 32, 30, 29],
+         'Profession': ['Manager', 'Developer', 'Analyst', 'Admin', 'HR'],
+         'Sale':[422.19, 22.55, 119.470, 200.190, 44.55],
+         'Salary':[12000, 10000, 14000, 11000, 14000]}
+
+data = pd.DataFrame(table)
+print(data)
+
+print('\n---Select Name, Sale column in a DataFrame---')
+print(data.loc[:, ['Name', 'Sale']])
+
+print('\n---Select Name, Profession, Salary in a DataFrame---')
+print(data.loc[:, ['Name', 'Profession', 'Salary']])
+
+print('\n---Select rows from 1 to 2 in a DataFrame---')
+print(data.loc[1:3, ['Name', 'Profession', 'Salary']])
+\end{minted}
+
+\begin{verbatim}
+        Name  Age Profession    Sale  Salary
+0  Abhimanyu   35    Manager  422.19   12000
+1        Jai   25  Developer   22.55   10000
+2     Suresh   32    Analyst  119.47   14000
+3      Sahej   30      Admin  200.19   11000
+4      Shail   29         HR   44.55   14000
+
+---Select Name, Sale column in a DataFrame---
+        Name    Sale
+0  Abhimanyu  422.19
+1        Jai   22.55
+2     Suresh  119.47
+3      Sahej  200.19
+4      Shail   44.55
+
+---Select Name, Profession, Salary in a DataFrame---
+        Name Profession  Salary
+0  Abhimanyu    Manager   12000
+1        Jai  Developer   10000
+2     Suresh    Analyst   14000
+3      Sahej      Admin   11000
+4      Shail         HR   14000
+
+---Select rows from 1 to 2 in a DataFrame---
+     Name Profession  Salary
+1     Jai  Developer   10000
+2  Suresh    Analyst   14000
+3   Sahej      Admin   11000
+\end{verbatim}
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+# Getting rows using iloc
+import pandas as pd
+
+table = {'name': ['Jai', 'Mit', 'Suresh', 'Tammanah'],
+         'Age': [25, 32, 30, 26],
+         'Profession': ['Developer', 'Analyst', 'Admin', 'HR'],
+         'Salary':[1000000, 1200000, 900000, 1100000]}
+data = pd.DataFrame(table, index = ['a', 'b', 'c', 'd'])
+print(data)
+
+print('\n---Select 1st row from a DataFrame---')
+print(data.iloc[1])
+
+print('\n---Select 3rd row from a DataFrame---')
+print(data.iloc[3])
+
+print('\n---Select 1 and 3 rows from a DataFrame---')
+print(data.iloc[[1, 3]])
+\end{minted}
+
+\begin{verbatim}
+       name  Age Profession   Salary
+a       Jai   25  Developer  1000000
+b       Mit   32    Analyst  1200000
+c    Suresh   30      Admin   900000
+d  Tammanah   26         HR  1100000
+
+---Select 1st row from a DataFrame---
+name              Mit
+Age                32
+Profession    Analyst
+Salary        1200000
+Name: b, dtype: object
+
+---Select 3rd row from a DataFrame---
+name          Tammanah
+Age                 26
+Profession          HR
+Salary         1100000
+Name: d, dtype: object
+
+---Select 1 and 3 rows from a DataFrame---
+       name  Age Profession   Salary
+b       Mit   32    Analyst  1200000
+d  Tammanah   26         HR  1100000
+\end{verbatim}
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+# Assignment: conditional loc-ing
+import pandas as pd
+import numpy as np
+
+data = pd.DataFrame({
+    'Age' :     [ 10, 22, 13, 21, 12, 11, 17],
+    'Section' : [ 'A', 'B', 'C', 'B', 'B', 'A', 'A'],
+    'City' :    [ 'Gurgaon', 'Delhi', 'Mumbai', 'Delhi',
+                  'Mumbai', 'Delhi', 'Mumbai'],
+    'Gender' :  [ 'M', 'F', 'F', 'M', 'M', 'M', 'F'],
+    'Favourite_Color' : [ 'red', np.NAN, 'yellow', np.NAN, 'black',
+                          'green', 'red']})
+print(data)
+print(data.iloc[1:3,2:4])
+print(data.loc[data.Age >= 15])
+print(data.loc[(data.Age >= 12) & (data.Gender == 'M')])
+print(data.loc[(data.Age >= 12), ['City', 'Gender']])
+data.loc[(data.Age >= 12), ['Section']] = 'M'
+print(data)
+\end{minted}
+
+\begin{verbatim}
+   Age Section     City Gender Favourite_Color
+0   10       A  Gurgaon      M             red
+1   22       B    Delhi      F             NaN
+2   13       C   Mumbai      F          yellow
+3   21       B    Delhi      M             NaN
+4   12       B   Mumbai      M           black
+5   11       A    Delhi      M           green
+6   17       A   Mumbai      F             red
+     City Gender
+1   Delhi      F
+2  Mumbai      F
+   Age Section    City Gender Favourite_Color
+1   22       B   Delhi      F             NaN
+3   21       B   Delhi      M             NaN
+6   17       A  Mumbai      F             red
+   Age Section    City Gender Favourite_Color
+3   21       B   Delhi      M             NaN
+4   12       B  Mumbai      M           black
+     City Gender
+1   Delhi      F
+2  Mumbai      F
+3   Delhi      M
+4  Mumbai      M
+6  Mumbai      F
+   Age Section     City Gender Favourite_Color
+0   10       A  Gurgaon      M             red
+1   22       M    Delhi      F             NaN
+2   13       M   Mumbai      F          yellow
+3   21       M    Delhi      M             NaN
+4   12       M   Mumbai      M           black
+5   11       A    Delhi      M           green
+6   17       M   Mumbai      F             red
 \end{verbatim}
 \end{document}

@@ -518,6 +518,7 @@ Bookmarks tree.
 
  #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
  #+BEGIN_SRC python :results output :exports both
+   # Getting columns
    import pandas as pd
 
    table = {'name': ['Aditya', 'Aryan', 'Nebhrajani', 'Sahej'],
@@ -555,4 +556,94 @@ Bookmarks tree.
    print(data1)
    print('\nDescribe function result')
    print(data1.describe())
+ #+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+   # Getting rows using loc
+   import pandas as pd
+   table = {'name': ['Jai', 'Mike', 'Suresh', 'Sahej'],
+            'Age': [25, 32, 30, 26],
+            'Profession': ['Developer', 'Analyst', 'Admin', 'HR'],
+            'Salary':[1000000, 1200000, 900000, 1100000]}
+
+   data = pd.DataFrame(table, index = ['a', 'b', 'c', 'd'])
+   print(data)
+
+   print('\n---Select b row from a DataFrame---')
+   print(data.loc['b'])
+
+   print('\n---Select c row from a DataFrame---')
+   print(data.loc['c'])
+
+   print('\n---Select b and d rows from a DataFrame---')
+   print(data.loc[['b', 'd']])
+ #+END_SRC
+
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+BEGIN_SRC python :results output :exports both
+  # Getting columns using loc
+  import pandas as pd
+  table = {'Name': ['Abhimanyu', 'Jai', 'Suresh', 'Sahej', 'Shail'],
+           'Age': [35, 25, 32, 30, 29],
+           'Profession': ['Manager', 'Developer', 'Analyst', 'Admin', 'HR'],
+           'Sale':[422.19, 22.55, 119.470, 200.190, 44.55],
+           'Salary':[12000, 10000, 14000, 11000, 14000]}
+
+  data = pd.DataFrame(table)
+  print(data)
+
+  print('\n---Select Name, Sale column in a DataFrame---')
+  print(data.loc[:, ['Name', 'Sale']])
+
+  print('\n---Select Name, Profession, Salary in a DataFrame---')
+  print(data.loc[:, ['Name', 'Profession', 'Salary']])
+
+  print('\n---Select rows from 1 to 2 in a DataFrame---')
+  print(data.loc[1:3, ['Name', 'Profession', 'Salary']])
+#+END_SRC
+
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+  # Getting rows using iloc
+  import pandas as pd
+
+  table = {'name': ['Jai', 'Mit', 'Suresh', 'Tammanah'],
+           'Age': [25, 32, 30, 26],
+           'Profession': ['Developer', 'Analyst', 'Admin', 'HR'],
+           'Salary':[1000000, 1200000, 900000, 1100000]}
+  data = pd.DataFrame(table, index = ['a', 'b', 'c', 'd'])
+  print(data)
+
+  print('\n---Select 1st row from a DataFrame---')
+  print(data.iloc[1])
+
+  print('\n---Select 3rd row from a DataFrame---')
+  print(data.iloc[3])
+
+  print('\n---Select 1 and 3 rows from a DataFrame---')
+  print(data.iloc[[1, 3]])
+#+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+   # Assignment: conditional loc-ing
+   import pandas as pd
+   import numpy as np
+
+   data = pd.DataFrame({
+       'Age' :     [ 10, 22, 13, 21, 12, 11, 17],
+       'Section' : [ 'A', 'B', 'C', 'B', 'B', 'A', 'A'],
+       'City' :    [ 'Gurgaon', 'Delhi', 'Mumbai', 'Delhi',
+                     'Mumbai', 'Delhi', 'Mumbai'],
+       'Gender' :  [ 'M', 'F', 'F', 'M', 'M', 'M', 'F'],
+       'Favourite_Color' : [ 'red', np.NAN, 'yellow', np.NAN, 'black',
+                             'green', 'red']})
+   print(data)
+   print(data.iloc[1:3,2:4])
+   print(data.loc[data.Age >= 15])
+   print(data.loc[(data.Age >= 12) & (data.Gender == 'M')])
+   print(data.loc[(data.Age >= 12), ['City', 'Gender']])
+   data.loc[(data.Age >= 12), ['Section']] = 'M'
+   print(data)
  #+END_SRC
