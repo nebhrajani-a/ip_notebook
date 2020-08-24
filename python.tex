@@ -1,4 +1,4 @@
-% Created 2020-08-17 Mon 13:48
+% Created 2020-08-24 Mon 13:39
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -15,7 +15,8 @@
 \usepackage{capt-of}
 \usepackage[hidelinks]{hyperref}
 \usepackage{minted}
-\usepackage[a4paper, total={6in, 10.2in}]{geometry}
+\usepackage[a4paper, total={6in, 9in}]{geometry}
+\setminted{breaklines, autogobble}
 \usemintedstyle{emacs}
 \author{Nebhrajani A. V.}
 \date{}
@@ -35,9 +36,9 @@
 \newpage
 
 \section{Preamble}
-\label{sec:org413a0ec}
+\label{sec:orgb94c001}
 \subsection{Notebook Conventions}
-\label{sec:org904371f}
+\label{sec:orgf7644f2}
 All code in this notebook is in Python unless specified otherwise.
 All code is syntax-highlighted, placed in boxes, and is line
 numbered. The output of the interpreter on \texttt{stdout} is printed directly below it,
@@ -56,7 +57,7 @@ It is recommended that you navigate using the hyperlinked TOC or the Adobe
 Bookmarks tree.
 
 \subsection{Hardware and Software Used}
-\label{sec:org7fddaf7}
+\label{sec:orgc17487b}
 
  This notebook is written in an \texttt{org-mode} file and exported to PDF via \LaTeX{}, Org version 9.3.6 on
 GNU Emacs 25.2.2 (x86\_ 64-pc-linux-gnu, GTK+ Version 3.22.21) of
@@ -66,7 +67,7 @@ throughout unless specified otherwise. For the Org or \LaTeX{} source, contact
 \href{mailto:aditya.v.nebhrajani@gmail.com}{aditya.v.nebhrajani@gmail.com}.
 
 \subsection{Acknowledgements}
-\label{sec:org47c114d}
+\label{sec:org762325e}
 I am grateful to the FSF, the GNU Project, the Linux foundation,
 the Emacs, StackExchange and FLOSS communities, and my father,
 who taught me that a world outside commercialized technology does
@@ -74,9 +75,9 @@ exist and thrive.
 \newpage
 
 \section{NumPy}
-\label{sec:orgdb49328}
+\label{sec:org6362ad9}
 \subsection{Worksheet 2020-07-26}
-\label{sec:org1f14dc8}
+\label{sec:org9bcbe91}
 
 \begin{enumerate}
 \item Create an ndarray with values ranging from 10 to 49 each spaced with a difference of 3.
@@ -354,9 +355,9 @@ print(a[::-1,::-1])
 
 \newpage
 \section{Pandas}
-\label{sec:orgfe1faf1}
+\label{sec:org222dcc2}
 \subsection{Series}
-\label{sec:orgb71225e}
+\label{sec:orgfc10390}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Import numpy and pandas
 import pandas as pd
@@ -714,8 +715,8 @@ Name: animal, dtype: bool
  print(ser3)
 \end{minted}
 
-\subsection{Dataframe}
-\label{sec:org2e246a6}
+\subsection{DataFrame}
+\label{sec:org7b3ce7a}
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Empty dataframe
@@ -797,14 +798,14 @@ print(d_frame)
 
 \begin{verbatim}
           0         1         2         3
-0  1.377935  0.607761 -0.428618 -0.240802
-1 -0.364594 -0.636132 -1.358991  1.308245
-2 -1.873483  0.801070  1.280485 -0.828012
-3 -0.478274  1.523695 -1.278691 -0.618768
-4  1.106437 -0.877347 -1.085779 -0.308250
-5  1.122455 -0.796418 -0.057728 -0.506979
-6 -1.673939  0.680149  1.410855  0.889343
-7  0.279014 -1.559914  0.591501 -0.549156
+0  0.666972 -1.359907  0.810104  0.807929
+1  0.163417 -0.788228 -0.115807 -0.494315
+2 -1.242414  1.611055  0.325136 -0.333818
+3 -0.091852 -1.015295 -0.546920  0.221086
+4 -0.489748 -0.491414  0.573560 -0.368252
+5  1.077712 -0.361179 -1.315051  0.605405
+6 -0.164775 -1.394371 -1.144721 -0.544062
+7  0.530031  0.833466 -0.487362 -1.724275
 \end{verbatim}
 
 
@@ -1254,5 +1255,76 @@ print(data)
 4   12       M   Mumbai      M           black
 5   11       A    Delhi      M           green
 6   17       M   Mumbai      F             red
+\end{verbatim}
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+import pandas as pd
+
+zoo = pd.read_csv('/home/aditya/Downloads/zoo.csv', delimiter = ',')
+print(zoo)
+print(zoo.count())
+print(zoo.animal.count())
+print(zoo.water_need.sum())
+print(zoo.sum())
+print(zoo.water_need.min())
+print(zoo.water_need.max())
+print(zoo.water_need.mean())
+print(zoo.water_need.median())
+print(zoo.groupby('animal').mean())
+print(zoo.groupby('animal').mean().water_need)
+\end{minted}
+
+\begin{verbatim}
+      animal  uniq_id  water_need
+0   elephant     1001         500
+1   elephant     1002         600
+2   elephant     1003         550
+3      tiger     1004         300
+4      tiger     1005         320
+5      tiger     1006         330
+6      tiger     1007         290
+7      tiger     1008         310
+8      zebra     1009         200
+9      zebra     1010         220
+10     zebra     1011         240
+11     zebra     1012         230
+12     zebra     1013         220
+13     zebra     1014         100
+14     zebra     1015          80
+15      lion     1016         420
+16      lion     1017         600
+17      lion     1018         500
+18      lion     1019         390
+19  kangaroo     1020         410
+20  kangaroo     1021         430
+21  kangaroo     1022         410
+animal        22
+uniq_id       22
+water_need    22
+dtype: int64
+22
+7650
+animal        elephantelephantelephanttigertigertigertigerti...
+uniq_id                                                   22253
+water_need                                                 7650
+dtype: object
+80
+600
+347.72727272727275
+325.0
+          uniq_id  water_need
+animal
+elephant   1002.0  550.000000
+kangaroo   1021.0  416.666667
+lion       1017.5  477.500000
+tiger      1006.0  310.000000
+zebra      1012.0  184.285714
+animal
+elephant    550.000000
+kangaroo    416.666667
+lion        477.500000
+tiger       310.000000
+zebra       184.285714
+Name: water_need, dtype: float64
 \end{verbatim}
 \end{document}

@@ -1,7 +1,9 @@
 #+title: Python IP Class Notebook
 #+author: Nebhrajani A. V.
 #+date:
+#+LATEX_HEADER: \setminted{breaklines, autogobble}
 #+LATEX_HEADER: \usemintedstyle{emacs}
+
 \newpage
 
 * Preamble
@@ -389,7 +391,7 @@ Bookmarks tree.
     print(ser3)
  #+END_SRC
 
-** Dataframe
+** DataFrame
 
 #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
 #+BEGIN_SRC python :results output :exports both
@@ -647,3 +649,21 @@ Bookmarks tree.
    data.loc[(data.Age >= 12), ['Section']] = 'M'
    print(data)
  #+END_SRC
+
+  #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+    import pandas as pd
+
+    zoo = pd.read_csv('/home/aditya/Downloads/zoo.csv', delimiter = ',')
+    print(zoo)
+    print(zoo.count())
+    print(zoo.animal.count())
+    print(zoo.water_need.sum())
+    print(zoo.sum())
+    print(zoo.water_need.min())
+    print(zoo.water_need.max())
+    print(zoo.water_need.mean())
+    print(zoo.water_need.median())
+    print(zoo.groupby('animal').mean())
+    print(zoo.groupby('animal').mean().water_need)
+  #+END_SRC
