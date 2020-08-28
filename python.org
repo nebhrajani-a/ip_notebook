@@ -667,3 +667,46 @@ Bookmarks tree.
     print(zoo.groupby('animal').mean())
     print(zoo.groupby('animal').mean().water_need)
   #+END_SRC
+  #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+    import pandas as pd
+    #Create a Dictionary of series
+    d = {'Name':pd.Series(['Sachin','Dhoni','Virat','Rohit','Shikhar']), 'Age':pd.Series([26,25,25,24,31]), 'Score':pd.Series([87,67,89,55,47])}
+    #Create a DataFrame
+    df = pd.DataFrame(d)
+    print("Dataframe contents without sorting")
+    print (df)
+    df=df.sort_values(by=['Age', 'Score'],ascending=[True,False])
+    print("Dataframe contents after sorting")
+    print (df)
+  #+END_SRC
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+   import pandas as pd
+   import numpy as np
+   #Create a Dictionary of series
+   d = {'Name':pd.Series(['Sachin','Dhoni','Virat','Rohit','Shikhar']),'Age':pd.Series([26,25,25,24,31]), 'Score':pd.Series([87,67,89,55,47])}
+   #Create a DataFrame
+   df = pd.DataFrame(d)
+   df=df.reindex([1,4,3,2,0])
+   print("Dataframe contents without sorting")
+   print (df)
+   df1=df.sort_index()
+   print("Dataframe contents after sorting")
+   print (df1)
+ #+END_SRC
+
+  #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+  #+BEGIN_SRC python :results output :exports both
+    import pandas as pd
+    import numpy as np
+    #Create a Dictionary of series
+    d = {'Name':pd.Series(['Sachin','Dhoni','Virat','Rohit','Shikhar']),
+    'Age':pd.Series([26,25,25,24,31]),
+    'Score':pd.Series([87,67,89,55,47])}
+    #Create a DataFrame
+    df = pd.DataFrame(d)
+    print("Dataframe contents")
+    print (df)
+    print(df.var())
+  #+END_SRC

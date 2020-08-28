@@ -1,4 +1,4 @@
-% Created 2020-08-24 Mon 13:47
+% Created 2020-08-28 Fri 13:46
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -36,9 +36,9 @@
 \newpage
 
 \section{Preamble}
-\label{sec:org51d9dbd}
+\label{sec:org4dea4e1}
 \subsection{Notebook Conventions}
-\label{sec:orgbbd2f07}
+\label{sec:org691a617}
 All code in this notebook is in Python unless specified otherwise.
 All code is syntax-highlighted, placed in boxes, and is line
 numbered. The output of the interpreter on \texttt{stdout} is printed directly below it,
@@ -57,7 +57,7 @@ It is recommended that you navigate using the hyperlinked TOC or the Adobe
 Bookmarks tree.
 
 \subsection{Hardware and Software Used}
-\label{sec:orgd57f088}
+\label{sec:orgc05bcd7}
 
  This notebook is written in an \texttt{org-mode} file and exported to PDF via \LaTeX{}, Org version 9.3.6 on
 GNU Emacs 25.2.2 (x86\_ 64-pc-linux-gnu, GTK+ Version 3.22.21) of
@@ -67,7 +67,7 @@ throughout unless specified otherwise. For the Org or \LaTeX{} source, contact
 \href{mailto:aditya.v.nebhrajani@gmail.com}{aditya.v.nebhrajani@gmail.com}.
 
 \subsection{Acknowledgements}
-\label{sec:org8db493f}
+\label{sec:orgd09560b}
 I am grateful to the FSF, the GNU Project, the Linux foundation,
 the Emacs, StackExchange and FLOSS communities, and my father,
 who taught me that a world outside commercialized technology does
@@ -75,9 +75,9 @@ exist and thrive.
 \newpage
 
 \section{NumPy}
-\label{sec:orgc4d10d9}
+\label{sec:orgb19372a}
 \subsection{Worksheet 2020-07-26}
-\label{sec:org394f1ea}
+\label{sec:org11dd52b}
 
 \begin{enumerate}
 \item Create an ndarray with values ranging from 10 to 49 each spaced with a difference of 3.
@@ -355,9 +355,9 @@ print(a[::-1,::-1])
 
 \newpage
 \section{Pandas}
-\label{sec:org82a8e68}
+\label{sec:orga840d93}
 \subsection{Series}
-\label{sec:org46aafc5}
+\label{sec:org5db0390}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Import numpy and pandas
 import pandas as pd
@@ -716,7 +716,7 @@ Name: animal, dtype: bool
 \end{minted}
 
 \subsection{DataFrame}
-\label{sec:org9820c83}
+\label{sec:org9fe2cd0}
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Empty dataframe
@@ -798,14 +798,14 @@ print(d_frame)
 
 \begin{verbatim}
           0         1         2         3
-0 -1.658347  0.321921  0.268328 -1.204242
-1 -0.618331  0.340721 -0.044156  1.334705
-2 -0.760814  0.460260  1.633536  0.561733
-3 -0.433410 -0.946414 -0.100586 -0.525508
-4  0.167209 -1.417316  0.198713  0.905820
-5  0.251468 -1.488470 -0.252249  0.488353
-6 -1.783383 -0.660594 -0.529793 -1.358476
-7  1.833498 -0.448362 -0.625867  0.260166
+0 -2.296461  0.448501 -1.153932  0.491102
+1 -0.562505  0.756676 -0.089390  0.679122
+2  0.587303  0.704601  0.611869 -1.570423
+3 -0.450880  2.271608  0.310344 -0.412725
+4 -0.319674  3.611587 -0.206180  1.958660
+5 -0.119737  0.503213  0.433716 -1.419009
+6 -0.497520 -2.120099  0.339257  0.782602
+7 -0.778559 -1.619431 -0.355558 -0.632854
 \end{verbatim}
 
 
@@ -1326,5 +1326,94 @@ lion        477.500000
 tiger       310.000000
 zebra       184.285714
 Name: water_need, dtype: float64
+\end{verbatim}
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+import pandas as pd
+#Create a Dictionary of series
+d = {'Name':pd.Series(['Sachin','Dhoni','Virat','Rohit','Shikhar']), 'Age':pd.Series([26,25,25,24,31]), 'Score':pd.Series([87,67,89,55,47])}
+#Create a DataFrame
+df = pd.DataFrame(d)
+print("Dataframe contents without sorting")
+print (df)
+df=df.sort_values(by=['Age', 'Score'],ascending=[True,False])
+print("Dataframe contents after sorting")
+print (df)
+\end{minted}
+
+\begin{verbatim}
+Dataframe contents without sorting
+      Name  Age  Score
+0   Sachin   26     87
+1    Dhoni   25     67
+2    Virat   25     89
+3    Rohit   24     55
+4  Shikhar   31     47
+Dataframe contents after sorting
+      Name  Age  Score
+3    Rohit   24     55
+2    Virat   25     89
+1    Dhoni   25     67
+0   Sachin   26     87
+4  Shikhar   31     47
+\end{verbatim}
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+import pandas as pd
+import numpy as np
+#Create a Dictionary of series
+d = {'Name':pd.Series(['Sachin','Dhoni','Virat','Rohit','Shikhar']),'Age':pd.Series([26,25,25,24,31]), 'Score':pd.Series([87,67,89,55,47])}
+#Create a DataFrame
+df = pd.DataFrame(d)
+df=df.reindex([1,4,3,2,0])
+print("Dataframe contents without sorting")
+print (df)
+df1=df.sort_index()
+print("Dataframe contents after sorting")
+print (df1)
+\end{minted}
+
+\begin{verbatim}
+Dataframe contents without sorting
+      Name  Age  Score
+1    Dhoni   25     67
+4  Shikhar   31     47
+3    Rohit   24     55
+2    Virat   25     89
+0   Sachin   26     87
+Dataframe contents after sorting
+      Name  Age  Score
+0   Sachin   26     87
+1    Dhoni   25     67
+2    Virat   25     89
+3    Rohit   24     55
+4  Shikhar   31     47
+\end{verbatim}
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+import pandas as pd
+import numpy as np
+#Create a Dictionary of series
+d = {'Name':pd.Series(['Sachin','Dhoni','Virat','Rohit','Shikhar']),
+'Age':pd.Series([26,25,25,24,31]),
+'Score':pd.Series([87,67,89,55,47])}
+#Create a DataFrame
+df = pd.DataFrame(d)
+print("Dataframe contents")
+print (df)
+print(df.var())
+\end{minted}
+
+\begin{verbatim}
+Dataframe contents
+      Name  Age  Score
+0   Sachin   26     87
+1    Dhoni   25     67
+2    Virat   25     89
+3    Rohit   24     55
+4  Shikhar   31     47
+Age        7.7
+Score    352.0
+dtype: float64
 \end{verbatim}
 \end{document}
