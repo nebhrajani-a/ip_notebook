@@ -710,3 +710,23 @@ Bookmarks tree.
     print (df)
     print(df.var())
   #+END_SRC
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+   from collections import OrderedDict
+   from pandas import DataFrame
+   import pandas as pd
+   import numpy as np
+   table = OrderedDict((
+   ("ITEM", ['TV', 'TV', 'AC', 'AC']),
+   ('COMPANY',['LG', 'VIDEOCON', 'LG', 'SONY']),
+   ('RUPEES', ['12000', '10000', '15000', '14000']),
+   ('USD', ['700', '650', '800', '750'])
+   ))
+   d = DataFrame(table)
+   print("DATA OF DATAFRAME")
+   print(d)
+   p = d.pivot(index='ITEM', columns='COMPANY', values='RUPEES')
+   print("\n\nDATA OF PIVOT")
+   print(p)
+   print (p[p.index=='TV'].LG.values)
+ #+END_SRC

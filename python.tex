@@ -1,4 +1,4 @@
-% Created 2020-08-28 Fri 13:46
+% Created 2020-08-31 Mon 13:18
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -36,9 +36,9 @@
 \newpage
 
 \section{Preamble}
-\label{sec:org4dea4e1}
+\label{sec:orgf159a63}
 \subsection{Notebook Conventions}
-\label{sec:org691a617}
+\label{sec:org3cf84f3}
 All code in this notebook is in Python unless specified otherwise.
 All code is syntax-highlighted, placed in boxes, and is line
 numbered. The output of the interpreter on \texttt{stdout} is printed directly below it,
@@ -57,7 +57,7 @@ It is recommended that you navigate using the hyperlinked TOC or the Adobe
 Bookmarks tree.
 
 \subsection{Hardware and Software Used}
-\label{sec:orgc05bcd7}
+\label{sec:orgdab35f6}
 
  This notebook is written in an \texttt{org-mode} file and exported to PDF via \LaTeX{}, Org version 9.3.6 on
 GNU Emacs 25.2.2 (x86\_ 64-pc-linux-gnu, GTK+ Version 3.22.21) of
@@ -67,7 +67,7 @@ throughout unless specified otherwise. For the Org or \LaTeX{} source, contact
 \href{mailto:aditya.v.nebhrajani@gmail.com}{aditya.v.nebhrajani@gmail.com}.
 
 \subsection{Acknowledgements}
-\label{sec:orgd09560b}
+\label{sec:org0132d26}
 I am grateful to the FSF, the GNU Project, the Linux foundation,
 the Emacs, StackExchange and FLOSS communities, and my father,
 who taught me that a world outside commercialized technology does
@@ -75,9 +75,9 @@ exist and thrive.
 \newpage
 
 \section{NumPy}
-\label{sec:orgb19372a}
+\label{sec:orgf262269}
 \subsection{Worksheet 2020-07-26}
-\label{sec:org11dd52b}
+\label{sec:org39da9f7}
 
 \begin{enumerate}
 \item Create an ndarray with values ranging from 10 to 49 each spaced with a difference of 3.
@@ -355,9 +355,9 @@ print(a[::-1,::-1])
 
 \newpage
 \section{Pandas}
-\label{sec:orga840d93}
+\label{sec:org423f0df}
 \subsection{Series}
-\label{sec:org5db0390}
+\label{sec:orgb545ba0}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Import numpy and pandas
 import pandas as pd
@@ -716,7 +716,7 @@ Name: animal, dtype: bool
 \end{minted}
 
 \subsection{DataFrame}
-\label{sec:org9fe2cd0}
+\label{sec:org9f46d7b}
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Empty dataframe
@@ -798,14 +798,14 @@ print(d_frame)
 
 \begin{verbatim}
           0         1         2         3
-0 -2.296461  0.448501 -1.153932  0.491102
-1 -0.562505  0.756676 -0.089390  0.679122
-2  0.587303  0.704601  0.611869 -1.570423
-3 -0.450880  2.271608  0.310344 -0.412725
-4 -0.319674  3.611587 -0.206180  1.958660
-5 -0.119737  0.503213  0.433716 -1.419009
-6 -0.497520 -2.120099  0.339257  0.782602
-7 -0.778559 -1.619431 -0.355558 -0.632854
+0 -1.072799 -1.848789 -0.226668 -0.390435
+1 -0.659064  0.265123 -2.472986  0.329023
+2  0.704929 -1.390617  0.264021  0.988012
+3 -0.595050  0.093714  0.295511 -0.491417
+4  1.912198 -0.798744 -0.568177  1.888272
+5  0.506213  0.882563 -1.024126  1.386547
+6 -0.798607  0.078695 -1.421664 -0.695785
+7 -0.672126 -0.926310 -1.376561  0.118788
 \end{verbatim}
 
 
@@ -1415,5 +1415,42 @@ Dataframe contents
 Age        7.7
 Score    352.0
 dtype: float64
+\end{verbatim}
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+from collections import OrderedDict
+from pandas import DataFrame
+import pandas as pd
+import numpy as np
+table = OrderedDict((
+("ITEM", ['TV', 'TV', 'AC', 'AC']),
+('COMPANY',['LG', 'VIDEOCON', 'LG', 'SONY']),
+('RUPEES', ['12000', '10000', '15000', '14000']),
+('USD', ['700', '650', '800', '750'])
+))
+d = DataFrame(table)
+print("DATA OF DATAFRAME")
+print(d)
+p = d.pivot(index='ITEM', columns='COMPANY', values='RUPEES')
+print("\n\nDATA OF PIVOT")
+print(p)
+print (p[p.index=='TV'].LG.values)
+\end{minted}
+
+\begin{verbatim}
+DATA OF DATAFRAME
+  ITEM   COMPANY RUPEES  USD
+0   TV        LG  12000  700
+1   TV  VIDEOCON  10000  650
+2   AC        LG  15000  800
+3   AC      SONY  14000  750
+
+
+DATA OF PIVOT
+COMPANY     LG   SONY VIDEOCON
+ITEM
+AC       15000  14000      NaN
+TV       12000    NaN    10000
+['12000']
 \end{verbatim}
 \end{document}
