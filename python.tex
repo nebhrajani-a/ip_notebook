@@ -1,4 +1,4 @@
-% Created 2020-08-31 Mon 13:18
+% Created 2020-09-28 Mon 14:27
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -36,9 +36,9 @@
 \newpage
 
 \section{Preamble}
-\label{sec:orgf159a63}
+\label{sec:orgce036ea}
 \subsection{Notebook Conventions}
-\label{sec:org3cf84f3}
+\label{sec:org2321fb9}
 All code in this notebook is in Python unless specified otherwise.
 All code is syntax-highlighted, placed in boxes, and is line
 numbered. The output of the interpreter on \texttt{stdout} is printed directly below it,
@@ -57,7 +57,7 @@ It is recommended that you navigate using the hyperlinked TOC or the Adobe
 Bookmarks tree.
 
 \subsection{Hardware and Software Used}
-\label{sec:orgdab35f6}
+\label{sec:orgb03c5ed}
 
  This notebook is written in an \texttt{org-mode} file and exported to PDF via \LaTeX{}, Org version 9.3.6 on
 GNU Emacs 25.2.2 (x86\_ 64-pc-linux-gnu, GTK+ Version 3.22.21) of
@@ -67,7 +67,7 @@ throughout unless specified otherwise. For the Org or \LaTeX{} source, contact
 \href{mailto:aditya.v.nebhrajani@gmail.com}{aditya.v.nebhrajani@gmail.com}.
 
 \subsection{Acknowledgements}
-\label{sec:org0132d26}
+\label{sec:org0c5072d}
 I am grateful to the FSF, the GNU Project, the Linux foundation,
 the Emacs, StackExchange and FLOSS communities, and my father,
 who taught me that a world outside commercialized technology does
@@ -75,9 +75,9 @@ exist and thrive.
 \newpage
 
 \section{NumPy}
-\label{sec:orgf262269}
+\label{sec:orgde54d37}
 \subsection{Worksheet 2020-07-26}
-\label{sec:org39da9f7}
+\label{sec:org45a11a5}
 
 \begin{enumerate}
 \item Create an ndarray with values ranging from 10 to 49 each spaced with a difference of 3.
@@ -355,9 +355,9 @@ print(a[::-1,::-1])
 
 \newpage
 \section{Pandas}
-\label{sec:org423f0df}
+\label{sec:org4058e59}
 \subsection{Series}
-\label{sec:orgb545ba0}
+\label{sec:orgcb7fc92}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Import numpy and pandas
 import pandas as pd
@@ -716,7 +716,7 @@ Name: animal, dtype: bool
 \end{minted}
 
 \subsection{DataFrame}
-\label{sec:org9f46d7b}
+\label{sec:org43dc768}
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Empty dataframe
@@ -798,14 +798,14 @@ print(d_frame)
 
 \begin{verbatim}
           0         1         2         3
-0 -1.072799 -1.848789 -0.226668 -0.390435
-1 -0.659064  0.265123 -2.472986  0.329023
-2  0.704929 -1.390617  0.264021  0.988012
-3 -0.595050  0.093714  0.295511 -0.491417
-4  1.912198 -0.798744 -0.568177  1.888272
-5  0.506213  0.882563 -1.024126  1.386547
-6 -0.798607  0.078695 -1.421664 -0.695785
-7 -0.672126 -0.926310 -1.376561  0.118788
+0  1.034579 -0.976205  0.324092  0.662724
+1 -1.889296  0.506272  1.316957 -1.441155
+2 -0.518152 -0.021948 -0.465861  0.841273
+3 -0.361726  0.395799 -2.132201 -0.110252
+4  1.051650  0.056638  0.914271 -0.154035
+5  0.854633  1.744256  0.607538 -2.413538
+6 -1.678753 -0.678528 -0.671556  0.513589
+7 -1.492590 -2.343006  0.162825  1.288865
 \end{verbatim}
 
 
@@ -1453,4 +1453,51 @@ AC       15000  14000      NaN
 TV       12000    NaN    10000
 ['12000']
 \end{verbatim}
+
+\newpage
+\section{Matplotlib}
+\label{sec:org7cfa550}
+The next two blocks are the preamble and the postamble for all code
+blocks in \texttt{matplotlib}. These prevent repetitive code writing.
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import numpy as np
+\end{minted}
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+plt.savefig(path)
+return path
+\end{minted}
+
+\subsection{Some Simple Plots}
+\label{sec:orge295d64}
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+
+x = np.arange(1, 10, 0.1)
+a = np.cos(x)
+b = np.sin(x)
+plt.plot(x, a, 'r')
+plt.plot(x, b, 'b')
+
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{fig1.png}
+\end{center}
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+
+over = [1,2,3,4,5]
+run = [13,5,7,16,4]
+plt.xlabel("Overs")
+plt.ylabel("Runs")
+plt.plot(over, run, 'r', marker='d', markersize=6, markeredgecolor='red')
+
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{fig2.png}
+\end{center}
 \end{document}

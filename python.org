@@ -730,3 +730,49 @@ Bookmarks tree.
    print(p)
    print (p[p.index=='TV'].LG.values)
  #+END_SRC
+ \newpage
+* Matplotlib
+  # http://kotfic.github.io/org-mode-export-of-matplotlib-images-etc.html
+
+The next two blocks are the preamble and the postamble for all code
+blocks in =matplotlib=. These prevent repetitive code writing.
+#+NAME: plt-preamble
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+BEGIN_SRC python :results file
+  import matplotlib
+  matplotlib.use('Agg')
+  import matplotlib.pyplot as plt
+  import numpy as np
+#+END_SRC
+
+#+NAME: plt-postamble
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+BEGIN_SRC python :results file
+plt.savefig(path)
+return path
+#+END_SRC
+
+** Some Simple Plots
+    #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+    #+HEADER: :var path="fig1.png"
+    #+BEGIN_SRC python :results file :exports both :noweb strip-export
+      <<plt-preamble>>
+      x = np.arange(1, 10, 0.1)
+      a = np.cos(x)
+      b = np.sin(x)
+      plt.plot(x, a, 'r')
+      plt.plot(x, b, 'b')
+      <<plt-postamble>>
+    #+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+HEADER: :var path="fig2.png"
+  #+BEGIN_SRC python :results file :exports both :noweb strip-export
+   <<plt-preamble>>
+   over = [1,2,3,4,5]
+   run = [13,5,7,16,4]
+   plt.xlabel("Overs")
+   plt.ylabel("Runs")
+   plt.plot(over, run, 'r', marker='d', markersize=6, markeredgecolor='red')
+   <<plt-postamble>>
+ #+END_SRC
