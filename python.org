@@ -748,8 +748,8 @@ blocks in =matplotlib=. These prevent repetitive code writing.
 #+NAME: plt-postamble
 #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
 #+BEGIN_SRC python :results file
-plt.savefig(path)
-return path
+  plt.savefig(path)
+  return path
 #+END_SRC
 
 ** Some Simple Plots
@@ -774,5 +774,35 @@ return path
    plt.xlabel("Overs")
    plt.ylabel("Runs")
    plt.plot(over, run, 'r', marker='d', markersize=6, markeredgecolor='red')
+   <<plt-postamble>>
+ #+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+HEADER: :var path="fig3.png"
+ #+BEGIN_SRC python :results file :exports both :noweb strip-export
+   <<plt-preamble>>
+   over = [1,2,3,4,5]
+   run = [13,5,7,16,4]
+   plt.xlabel("Overs")
+   plt.ylabel("Runs")
+   plt.bar(over, run, width=1/2, color = ['r', 'g', 'b', 'k', 'c'])
+   plt.show()
+   <<plt-postamble>>
+ #+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+HEADER: :var path="fig4.png"
+ #+BEGIN_SRC python :results file :exports both :noweb strip-export
+   <<plt-preamble>>
+   over = np.arange(1.0,6.0,1.0)
+   ind = [13,5,7,16,14]
+   nz = [3,5,4,8,11]
+   plt.xlabel("Overs")
+   plt.ylabel("Runs")
+   plt.xlim(0,6)
+   plt.title("Cricket Analysis")
+   plt.bar(over, ind, color='b', width=0.25, label = 'IND')
+   plt.bar(over+0.25, nz, color='r', width=0.25, label = 'NZ')
+   plt.legend(loc='upper left')
    <<plt-postamble>>
  #+END_SRC

@@ -1,4 +1,4 @@
-% Created 2020-09-28 Mon 14:27
+% Created 2020-09-30 Wed 14:10
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -36,9 +36,9 @@
 \newpage
 
 \section{Preamble}
-\label{sec:orgce036ea}
+\label{sec:org90343f5}
 \subsection{Notebook Conventions}
-\label{sec:org2321fb9}
+\label{sec:orgeecd545}
 All code in this notebook is in Python unless specified otherwise.
 All code is syntax-highlighted, placed in boxes, and is line
 numbered. The output of the interpreter on \texttt{stdout} is printed directly below it,
@@ -57,7 +57,7 @@ It is recommended that you navigate using the hyperlinked TOC or the Adobe
 Bookmarks tree.
 
 \subsection{Hardware and Software Used}
-\label{sec:orgb03c5ed}
+\label{sec:orgbc3c206}
 
  This notebook is written in an \texttt{org-mode} file and exported to PDF via \LaTeX{}, Org version 9.3.6 on
 GNU Emacs 25.2.2 (x86\_ 64-pc-linux-gnu, GTK+ Version 3.22.21) of
@@ -67,7 +67,7 @@ throughout unless specified otherwise. For the Org or \LaTeX{} source, contact
 \href{mailto:aditya.v.nebhrajani@gmail.com}{aditya.v.nebhrajani@gmail.com}.
 
 \subsection{Acknowledgements}
-\label{sec:org0c5072d}
+\label{sec:org3ec946e}
 I am grateful to the FSF, the GNU Project, the Linux foundation,
 the Emacs, StackExchange and FLOSS communities, and my father,
 who taught me that a world outside commercialized technology does
@@ -75,9 +75,9 @@ exist and thrive.
 \newpage
 
 \section{NumPy}
-\label{sec:orgde54d37}
+\label{sec:orgcec822b}
 \subsection{Worksheet 2020-07-26}
-\label{sec:org45a11a5}
+\label{sec:org3127497}
 
 \begin{enumerate}
 \item Create an ndarray with values ranging from 10 to 49 each spaced with a difference of 3.
@@ -355,9 +355,9 @@ print(a[::-1,::-1])
 
 \newpage
 \section{Pandas}
-\label{sec:org4058e59}
+\label{sec:orgb0d8e16}
 \subsection{Series}
-\label{sec:orgcb7fc92}
+\label{sec:org00276f7}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Import numpy and pandas
 import pandas as pd
@@ -716,7 +716,7 @@ Name: animal, dtype: bool
 \end{minted}
 
 \subsection{DataFrame}
-\label{sec:org43dc768}
+\label{sec:org5043e0a}
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Empty dataframe
@@ -798,14 +798,14 @@ print(d_frame)
 
 \begin{verbatim}
           0         1         2         3
-0  1.034579 -0.976205  0.324092  0.662724
-1 -1.889296  0.506272  1.316957 -1.441155
-2 -0.518152 -0.021948 -0.465861  0.841273
-3 -0.361726  0.395799 -2.132201 -0.110252
-4  1.051650  0.056638  0.914271 -0.154035
-5  0.854633  1.744256  0.607538 -2.413538
-6 -1.678753 -0.678528 -0.671556  0.513589
-7 -1.492590 -2.343006  0.162825  1.288865
+0 -0.771798 -1.060608  0.214255  1.949199
+1 -0.578792 -0.582928  0.187179 -0.280650
+2  0.205464  0.242373 -1.327052 -1.633666
+3  0.635107 -2.024006  0.207211 -1.033895
+4 -0.650219 -1.755729  1.367300  2.166650
+5 -1.541694 -0.595963  1.070923  2.217607
+6 -0.660339  0.311368  0.170493 -0.154386
+7  1.491888 -1.032708 -1.226753  0.696778
 \end{verbatim}
 
 
@@ -1456,7 +1456,7 @@ TV       12000    NaN    10000
 
 \newpage
 \section{Matplotlib}
-\label{sec:org7cfa550}
+\label{sec:org012016c}
 The next two blocks are the preamble and the postamble for all code
 blocks in \texttt{matplotlib}. These prevent repetitive code writing.
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
@@ -1472,7 +1472,7 @@ return path
 \end{minted}
 
 \subsection{Some Simple Plots}
-\label{sec:orge295d64}
+\label{sec:orgf818be1}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 
 x = np.arange(1, 10, 0.1)
@@ -1499,5 +1499,39 @@ plt.plot(over, run, 'r', marker='d', markersize=6, markeredgecolor='red')
 
 \begin{center}
 \includegraphics[width=.9\linewidth]{fig2.png}
+\end{center}
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+
+over = [1,2,3,4,5]
+run = [13,5,7,16,4]
+plt.xlabel("Overs")
+plt.ylabel("Runs")
+plt.bar(over, run, width=1/2, color = ['r', 'g', 'b', 'k', 'c'])
+plt.show()
+
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{fig3.png}
+\end{center}
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+
+over = np.arange(1.0,6.0,1.0)
+ind = [13,5,7,16,14]
+nz = [3,5,4,8,11]
+plt.xlabel("Overs")
+plt.ylabel("Runs")
+plt.xlim(0,6)
+plt.title("Cricket Analysis")
+plt.bar(over, ind, color='b', width=0.25, label = 'IND')
+plt.bar(over+0.25, nz, color='r', width=0.25, label = 'NZ')
+plt.legend(loc='upper left')
+
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{fig4.png}
 \end{center}
 \end{document}
