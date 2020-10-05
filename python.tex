@@ -1,4 +1,4 @@
-% Created 2020-09-30 Wed 14:10
+% Created 2020-10-05 Mon 14:07
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -36,9 +36,9 @@
 \newpage
 
 \section{Preamble}
-\label{sec:org90343f5}
+\label{sec:orgeff4a8e}
 \subsection{Notebook Conventions}
-\label{sec:orgeecd545}
+\label{sec:org4cdf8f5}
 All code in this notebook is in Python unless specified otherwise.
 All code is syntax-highlighted, placed in boxes, and is line
 numbered. The output of the interpreter on \texttt{stdout} is printed directly below it,
@@ -57,7 +57,7 @@ It is recommended that you navigate using the hyperlinked TOC or the Adobe
 Bookmarks tree.
 
 \subsection{Hardware and Software Used}
-\label{sec:orgbc3c206}
+\label{sec:org8063728}
 
  This notebook is written in an \texttt{org-mode} file and exported to PDF via \LaTeX{}, Org version 9.3.6 on
 GNU Emacs 25.2.2 (x86\_ 64-pc-linux-gnu, GTK+ Version 3.22.21) of
@@ -67,7 +67,7 @@ throughout unless specified otherwise. For the Org or \LaTeX{} source, contact
 \href{mailto:aditya.v.nebhrajani@gmail.com}{aditya.v.nebhrajani@gmail.com}.
 
 \subsection{Acknowledgements}
-\label{sec:org3ec946e}
+\label{sec:orgd6c98aa}
 I am grateful to the FSF, the GNU Project, the Linux foundation,
 the Emacs, StackExchange and FLOSS communities, and my father,
 who taught me that a world outside commercialized technology does
@@ -75,9 +75,9 @@ exist and thrive.
 \newpage
 
 \section{NumPy}
-\label{sec:orgcec822b}
+\label{sec:org7bc327b}
 \subsection{Worksheet 2020-07-26}
-\label{sec:org3127497}
+\label{sec:org1ed4644}
 
 \begin{enumerate}
 \item Create an ndarray with values ranging from 10 to 49 each spaced with a difference of 3.
@@ -355,9 +355,9 @@ print(a[::-1,::-1])
 
 \newpage
 \section{Pandas}
-\label{sec:orgb0d8e16}
+\label{sec:org239623f}
 \subsection{Series}
-\label{sec:org00276f7}
+\label{sec:orga069dfd}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Import numpy and pandas
 import pandas as pd
@@ -716,7 +716,7 @@ Name: animal, dtype: bool
 \end{minted}
 
 \subsection{DataFrame}
-\label{sec:org5043e0a}
+\label{sec:org574c0ec}
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Empty dataframe
@@ -798,14 +798,14 @@ print(d_frame)
 
 \begin{verbatim}
           0         1         2         3
-0 -0.771798 -1.060608  0.214255  1.949199
-1 -0.578792 -0.582928  0.187179 -0.280650
-2  0.205464  0.242373 -1.327052 -1.633666
-3  0.635107 -2.024006  0.207211 -1.033895
-4 -0.650219 -1.755729  1.367300  2.166650
-5 -1.541694 -0.595963  1.070923  2.217607
-6 -0.660339  0.311368  0.170493 -0.154386
-7  1.491888 -1.032708 -1.226753  0.696778
+0 -0.249706  0.687501  2.242374  0.780772
+1  0.534106  0.653176 -2.437236  1.258831
+2 -1.105398  1.001364 -0.890061 -0.174897
+3  0.227171  0.670414 -1.395308  1.055266
+4  1.005844 -0.084982 -0.101606 -0.084295
+5  2.563281 -0.424331 -0.606778 -0.580528
+6 -0.658894  0.940099 -0.425476  1.506650
+7 -0.565306  0.141370  1.566022 -1.505938
 \end{verbatim}
 
 
@@ -1456,7 +1456,7 @@ TV       12000    NaN    10000
 
 \newpage
 \section{Matplotlib}
-\label{sec:org012016c}
+\label{sec:org77152b4}
 The next two blocks are the preamble and the postamble for all code
 blocks in \texttt{matplotlib}. These prevent repetitive code writing.
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
@@ -1472,7 +1472,7 @@ return path
 \end{minted}
 
 \subsection{Some Simple Plots}
-\label{sec:orgf818be1}
+\label{sec:org40a59f0}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 
 x = np.arange(1, 10, 0.1)
@@ -1533,5 +1533,19 @@ plt.legend(loc='upper left')
 
 \begin{center}
 \includegraphics[width=.9\linewidth]{fig4.png}
+\end{center}
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+
+proglang=['Python', 'C++', 'Java', 'Perl', 'Lisp']
+performance=[10,7,6,4,2]
+plt.xlabel=('Programming Languages')
+plt.ylabel=('Performance')
+plt.bar(proglang,performance, color='red')
+
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{fig5.png}
 \end{center}
 \end{document}

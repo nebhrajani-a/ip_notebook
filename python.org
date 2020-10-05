@@ -806,3 +806,15 @@ blocks in =matplotlib=. These prevent repetitive code writing.
    plt.legend(loc='upper left')
    <<plt-postamble>>
  #+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+HEADER: :var path="fig5.png"
+ #+BEGIN_SRC python :results file :exports both :noweb strip-export
+   <<plt-preamble>>
+   proglang=['Python', 'C++', 'Java', 'Perl', 'Lisp']
+   performance=[10,7,6,4,2]
+   plt.xlabel=('Programming Languages')
+   plt.ylabel=('Performance')
+   plt.bar(proglang,performance, color='red')
+   <<plt-postamble>>
+ #+END_SRC
