@@ -818,3 +818,29 @@ blocks in =matplotlib=. These prevent repetitive code writing.
    plt.bar(proglang,performance, color='red')
    <<plt-postamble>>
  #+END_SRC
+
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig6.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import pandas as pd
+  x = {'speed':[10,15,20,18,19],\
+          'meters':[122,150,190,230,300],\
+           'weight':[0.2,0.3,0.1,0.85,0.0]}
+  df=pd.DataFrame(x)
+  plt.scatter(list(df['meters']), list(df['speed']))
+  <<plt-postamble>>
+#+END_SRC
+
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig7.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import pandas as pd
+  x = {'speed':[10,15,20,18,19],\
+          'meters':[122,150,190,230,300],\
+           'weight':[0.2,0.3,0.1,0.85,0.0]}
+  df=pd.DataFrame(x)
+  plt.scatter(list(df['meters']), list(df['weight']))
+  <<plt-postamble>>
+#+END_SRC

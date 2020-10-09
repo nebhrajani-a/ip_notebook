@@ -1,4 +1,4 @@
-% Created 2020-10-05 Mon 14:07
+% Created 2020-10-09 Fri 12:24
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -36,9 +36,9 @@
 \newpage
 
 \section{Preamble}
-\label{sec:orgeff4a8e}
+\label{sec:orgdff450f}
 \subsection{Notebook Conventions}
-\label{sec:org4cdf8f5}
+\label{sec:orgf7aadbf}
 All code in this notebook is in Python unless specified otherwise.
 All code is syntax-highlighted, placed in boxes, and is line
 numbered. The output of the interpreter on \texttt{stdout} is printed directly below it,
@@ -57,7 +57,7 @@ It is recommended that you navigate using the hyperlinked TOC or the Adobe
 Bookmarks tree.
 
 \subsection{Hardware and Software Used}
-\label{sec:org8063728}
+\label{sec:orgcb505a7}
 
  This notebook is written in an \texttt{org-mode} file and exported to PDF via \LaTeX{}, Org version 9.3.6 on
 GNU Emacs 25.2.2 (x86\_ 64-pc-linux-gnu, GTK+ Version 3.22.21) of
@@ -67,7 +67,7 @@ throughout unless specified otherwise. For the Org or \LaTeX{} source, contact
 \href{mailto:aditya.v.nebhrajani@gmail.com}{aditya.v.nebhrajani@gmail.com}.
 
 \subsection{Acknowledgements}
-\label{sec:orgd6c98aa}
+\label{sec:org7351f44}
 I am grateful to the FSF, the GNU Project, the Linux foundation,
 the Emacs, StackExchange and FLOSS communities, and my father,
 who taught me that a world outside commercialized technology does
@@ -75,9 +75,9 @@ exist and thrive.
 \newpage
 
 \section{NumPy}
-\label{sec:org7bc327b}
+\label{sec:orgde3807d}
 \subsection{Worksheet 2020-07-26}
-\label{sec:org1ed4644}
+\label{sec:org21c2d76}
 
 \begin{enumerate}
 \item Create an ndarray with values ranging from 10 to 49 each spaced with a difference of 3.
@@ -355,9 +355,9 @@ print(a[::-1,::-1])
 
 \newpage
 \section{Pandas}
-\label{sec:org239623f}
+\label{sec:org796d1cb}
 \subsection{Series}
-\label{sec:orga069dfd}
+\label{sec:org1b2e3a3}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Import numpy and pandas
 import pandas as pd
@@ -716,7 +716,7 @@ Name: animal, dtype: bool
 \end{minted}
 
 \subsection{DataFrame}
-\label{sec:org574c0ec}
+\label{sec:orga4ed413}
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Empty dataframe
@@ -798,14 +798,14 @@ print(d_frame)
 
 \begin{verbatim}
           0         1         2         3
-0 -0.249706  0.687501  2.242374  0.780772
-1  0.534106  0.653176 -2.437236  1.258831
-2 -1.105398  1.001364 -0.890061 -0.174897
-3  0.227171  0.670414 -1.395308  1.055266
-4  1.005844 -0.084982 -0.101606 -0.084295
-5  2.563281 -0.424331 -0.606778 -0.580528
-6 -0.658894  0.940099 -0.425476  1.506650
-7 -0.565306  0.141370  1.566022 -1.505938
+0  0.012154 -0.124888 -1.356081  1.291234
+1  1.388373  0.931157  0.549254  0.579520
+2  1.440575 -1.805543 -0.028425 -0.958609
+3  0.698468  0.508975 -3.040294  0.092214
+4 -1.227689 -0.501724  1.064598 -0.213265
+5 -0.525086  0.307464 -0.031587  0.046443
+6  0.853152 -0.672399  0.042818 -0.738976
+7  0.483227 -0.121160  0.748967 -0.411475
 \end{verbatim}
 
 
@@ -1456,7 +1456,7 @@ TV       12000    NaN    10000
 
 \newpage
 \section{Matplotlib}
-\label{sec:org77152b4}
+\label{sec:org0fe3257}
 The next two blocks are the preamble and the postamble for all code
 blocks in \texttt{matplotlib}. These prevent repetitive code writing.
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
@@ -1472,7 +1472,7 @@ return path
 \end{minted}
 
 \subsection{Some Simple Plots}
-\label{sec:org40a59f0}
+\label{sec:orgf6ab55e}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 
 x = np.arange(1, 10, 0.1)
@@ -1547,5 +1547,35 @@ plt.bar(proglang,performance, color='red')
 
 \begin{center}
 \includegraphics[width=.9\linewidth]{fig5.png}
+\end{center}
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+
+import pandas as pd
+x = {'speed':[10,15,20,18,19],\
+        'meters':[122,150,190,230,300],\
+         'weight':[0.2,0.3,0.1,0.85,0.0]}
+df=pd.DataFrame(x)
+plt.scatter(list(df['meters']), list(df['speed']))
+
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{fig6.png}
+\end{center}
+
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+
+import pandas as pd
+x = {'speed':[10,15,20,18,19],\
+        'meters':[122,150,190,230,300],\
+         'weight':[0.2,0.3,0.1,0.85,0.0]}
+df=pd.DataFrame(x)
+plt.scatter(list(df['meters']), list(df['weight']))
+
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{fig7.png}
 \end{center}
 \end{document}
