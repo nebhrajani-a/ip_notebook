@@ -844,3 +844,42 @@ blocks in =matplotlib=. These prevent repetitive code writing.
   plt.scatter(list(df['meters']), list(df['weight']))
   <<plt-postamble>>
 #+END_SRC
+
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig8.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import pandas as pd
+  df1 = pd.DataFrame({'1990':[52,64,78,94], '2000':[340,480,688,766], '2010':[890,560,1102,889]})
+  df1.index=['a', 'b', 'c', 'd']
+
+  plt.scatter(list(df1['1990']), list(df1['2000']))
+  plt.plot(df1['1990'], df1['2000'])
+
+  <<plt-postamble>>
+#+END_SRC
+
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig9.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import pandas as pd
+  df1 = pd.DataFrame({'1990':[52,64,78,94], '2000':[340,480,688,766], '2010':[890,560,1102,889]})
+  df1.index=['a', 'b', 'c', 'd']
+
+  plt.plot(df1['1990'], df1['2000'])
+
+  <<plt-postamble>>
+#+END_SRC
+
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig10.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import pandas as pd
+  df1 = pd.DataFrame({'1990':[52,64,78,94], '2000':[340,480,688,766], '2010':[890,560,1102,889]})
+  df1.index=['a', 'b', 'c', 'd']
+
+  df1.plot.bar()
+  <<plt-postamble>>
+#+END_SRC
