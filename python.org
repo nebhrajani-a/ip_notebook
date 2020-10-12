@@ -883,3 +883,31 @@ blocks in =matplotlib=. These prevent repetitive code writing.
   df1.plot.bar()
   <<plt-postamble>>
 #+END_SRC
+
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig11.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import pandas as pd
+  df1 = pd.DataFrame({'Jan':[140, 160, 140, 180, 110], 'Feb':[130, 200, 180, 150, 160], 'Mar':[130, 130, 150, 200, 130], 'Apr':[190, 200, 170, 120, 110], 'May':[160, 200, 190, 180, 120], 'Jun':[200, 170, 140, 140, 170], 'Jul':[150, 110, 170, 110, 130], 'Aug':[170, 160, 180, 130, 200], 'Sep':[190, 130, 190, 150, 150], 'Oct':[170, 140, 150, 190, 160], 'Nov':[150, 170, 140, 110, 170], 'Dec':[120, 200, 170, 140, 130]})
+  df1.index=['North', 'South', 'East', 'West', 'Central']
+  print(df1)
+  df1.plot.bar()
+  <<plt-postamble>>
+#+END_SRC
+
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig12.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import pandas as pd
+  df1 = pd.DataFrame({'Jan':[140, 160, 140, 180, 110], 'Feb':[130, 200, 180, 150, 160], 'Mar':[130, 130, 150, 200, 130], 'Apr':[190, 200, 170, 120, 110], 'May':[160, 200, 190, 180, 120], 'Jun':[200, 170, 140, 140, 170], 'Jul':[150, 110, 170, 110, 130], 'Aug':[170, 160, 180, 130, 200], 'Sep':[190, 130, 190, 150, 150], 'Oct':[170, 140, 150, 190, 160], 'Nov':[150, 170, 140, 110, 170], 'Dec':[120, 200, 170, 140, 130]})
+  df1.index=['North', 'South', 'East', 'West', 'Central']
+  plt.plot(df1.columns.values.tolist(), df1.loc['North',:], label='North')
+  plt.plot(df1.columns.values.tolist(), df1.loc['South',:], label='South')
+  plt.plot(df1.columns.values.tolist(), df1.loc['East',:], label='East')
+  plt.plot(df1.columns.values.tolist(), df1.loc['West',:], label='West')
+  plt.plot(df1.columns.values.tolist(), df1.loc['Central',:], label='Central')
+  plt.legend()
+  <<plt-postamble>>
+#+END_SRC
