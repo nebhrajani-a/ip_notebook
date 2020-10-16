@@ -1,4 +1,4 @@
-% Created 2020-10-12 Mon 13:23
+% Created 2020-10-16 Fri 12:37
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -36,9 +36,9 @@
 \newpage
 
 \section{Preamble}
-\label{sec:org12c86df}
+\label{sec:org3f44fd5}
 \subsection{Notebook Conventions}
-\label{sec:org951c2bd}
+\label{sec:orgcbee16f}
 All code in this notebook is in Python unless specified otherwise.
 All code is syntax-highlighted, placed in boxes, and is line
 numbered. The output of the interpreter on \texttt{stdout} is printed directly below it,
@@ -57,17 +57,17 @@ It is recommended that you navigate using the hyperlinked TOC or the Adobe
 Bookmarks tree.
 
 \subsection{Hardware and Software Used}
-\label{sec:orgf141c26}
+\label{sec:org52e84fc}
 
  This notebook is written in an \texttt{org-mode} file and exported to PDF via \LaTeX{}, Org version 9.3.6 on
 GNU Emacs 25.2.2 (x86\_ 64-pc-linux-gnu, GTK+ Version 3.22.21) of
 2017-09-23, modified by Debian, on a Foxconn Core i7 NanoPC running Linux
-Mint 19.3 XFCE 64-bit. Python 2.7.17 of 2020-04-15 is used
+Mint 19.3 XFCE 64-bit. Python 3.6.9 of 2020-04-15 is used
 throughout unless specified otherwise. For the Org or \LaTeX{} source, contact
 \href{mailto:aditya.v.nebhrajani@gmail.com}{aditya.v.nebhrajani@gmail.com}.
 
 \subsection{Acknowledgements}
-\label{sec:org14a8b5f}
+\label{sec:org3a87344}
 I am grateful to the FSF, the GNU Project, the Linux foundation,
 the Emacs, StackExchange and FLOSS communities, and my father,
 who taught me that a world outside commercialized technology does
@@ -75,9 +75,9 @@ exist and thrive.
 \newpage
 
 \section{NumPy}
-\label{sec:org70f8fdf}
+\label{sec:org0eecdb4}
 \subsection{Worksheet 2020-07-26}
-\label{sec:org39c9d1a}
+\label{sec:orgbc43303}
 
 \begin{enumerate}
 \item Create an ndarray with values ranging from 10 to 49 each spaced with a difference of 3.
@@ -355,9 +355,9 @@ print(a[::-1,::-1])
 
 \newpage
 \section{Pandas}
-\label{sec:orgac8afcf}
+\label{sec:org5edab02}
 \subsection{Series}
-\label{sec:org0c2055f}
+\label{sec:org533fa5d}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Import numpy and pandas
 import pandas as pd
@@ -716,7 +716,7 @@ Name: animal, dtype: bool
 \end{minted}
 
 \subsection{DataFrame}
-\label{sec:orge72ba18}
+\label{sec:org881c492}
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Empty dataframe
@@ -798,14 +798,14 @@ print(d_frame)
 
 \begin{verbatim}
           0         1         2         3
-0  1.229859  0.276771 -0.045632  0.259311
-1  0.074277 -0.168431  1.667804 -1.407468
-2  0.237926 -0.839273 -0.507893 -1.479707
-3 -1.406518  0.925847  1.197716 -1.009840
-4 -2.363665 -1.150008  0.667568 -0.633510
-5  0.145881  0.369782  0.261877 -0.740075
-6  0.807986  1.199728 -0.492667  0.222350
-7 -0.043676  0.477135  0.145498  0.965713
+0  0.585745 -0.001168  1.444893  0.043500
+1 -0.696433  1.048100  0.570695  0.164102
+2  0.259904 -0.141418  0.302201 -0.304243
+3  0.187015 -0.279834  1.214409  0.161543
+4  0.291165  0.870026 -1.872000 -0.794733
+5  0.596848 -1.766864 -0.672895 -0.195408
+6  1.365069 -0.279160 -0.301969  0.111645
+7  0.698949 -1.138789 -1.481461 -0.947795
 \end{verbatim}
 
 
@@ -1331,7 +1331,7 @@ Name: water_need, dtype: float64
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 import pandas as pd
 #Create a Dictionary of series
-d = {'Name':pd.Series(['Sachin','Dhoni','Virat','Rohit','Shikhar']), 'Age':pd.Series([26,25,25,24,31]), 'Score':pd.Series([87,67,89,55,47])}
+d = {'Name':pd.Series(['Sachin','Dhoni','Virat','Rohit','Shikhar']),'Age':pd.Series([26,25,25,24,31]), 'Score':pd.Series([87,67,89,55,47])}
 #Create a DataFrame
 df = pd.DataFrame(d)
 print("Dataframe contents without sorting")
@@ -1456,7 +1456,7 @@ TV       12000    NaN    10000
 
 \newpage
 \section{Matplotlib}
-\label{sec:orga9b422c}
+\label{sec:orgcf3affc}
 The next two blocks are the preamble and the postamble for all code
 blocks in \texttt{matplotlib}. These prevent repetitive code writing.
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
@@ -1470,9 +1470,9 @@ import numpy as np
 plt.savefig(path)
 return path
 \end{minted}
-
+\newpage
 \subsection{Some Simple Plots}
-\label{sec:orgbb41558}
+\label{sec:orga021cf6}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 
 x = np.arange(1, 10, 0.1)
@@ -1487,6 +1487,7 @@ plt.plot(x, b, 'b')
 \includegraphics[width=.9\linewidth]{fig1.png}
 \end{center}
 
+\newpage
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 
 over = [1,2,3,4,5]
@@ -1501,6 +1502,7 @@ plt.plot(over, run, 'r', marker='d', markersize=6, markeredgecolor='red')
 \includegraphics[width=.9\linewidth]{fig2.png}
 \end{center}
 
+\newpage
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 
 over = [1,2,3,4,5]
@@ -1516,6 +1518,7 @@ plt.show()
 \includegraphics[width=.9\linewidth]{fig3.png}
 \end{center}
 
+\newpage
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 
 over = np.arange(1.0,6.0,1.0)
@@ -1535,6 +1538,7 @@ plt.legend(loc='upper left')
 \includegraphics[width=.9\linewidth]{fig4.png}
 \end{center}
 
+\newpage
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 
 proglang=['Python', 'C++', 'Java', 'Perl', 'Lisp']
@@ -1549,6 +1553,7 @@ plt.bar(proglang,performance, color='red')
 \includegraphics[width=.9\linewidth]{fig5.png}
 \end{center}
 
+\newpage
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 
 import pandas as pd
@@ -1564,6 +1569,7 @@ plt.scatter(list(df['meters']), list(df['speed']))
 \includegraphics[width=.9\linewidth]{fig6.png}
 \end{center}
 
+\newpage
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 
 import pandas as pd
@@ -1579,6 +1585,7 @@ plt.scatter(list(df['meters']), list(df['weight']))
 \includegraphics[width=.9\linewidth]{fig7.png}
 \end{center}
 
+\newpage
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 
 import pandas as pd
@@ -1595,6 +1602,7 @@ plt.plot(df1['1990'], df1['2000'])
 \includegraphics[width=.9\linewidth]{fig8.png}
 \end{center}
 
+\newpage
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 
 import pandas as pd
@@ -1610,6 +1618,7 @@ plt.plot(df1['1990'], df1['2000'])
 \includegraphics[width=.9\linewidth]{fig9.png}
 \end{center}
 
+\newpage
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 
 import pandas as pd
@@ -1624,6 +1633,7 @@ df1.plot.bar()
 \includegraphics[width=.9\linewidth]{fig10.png}
 \end{center}
 
+\newpage
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 
 import pandas as pd
@@ -1638,6 +1648,7 @@ df1.plot.bar()
 \includegraphics[width=.9\linewidth]{fig11.png}
 \end{center}
 
+\newpage
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 
 import pandas as pd
@@ -1655,4 +1666,74 @@ plt.legend()
 \begin{center}
 \includegraphics[width=.9\linewidth]{fig12.png}
 \end{center}
+
+\newpage
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+
+import random
+x=[]
+for i in range(0,100):
+    x.append(random.random())
+plt.hist(x, bins=50)
+
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{fig13.png}
+\end{center}
+
+\newpage
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+
+import random
+x=[]
+for i in range(0,100):
+    x.append(random.random())
+plt.hist(x, bins=20, cumulative=True)
+
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{fig14.png}
+\end{center}
+
+\newpage
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+
+import random
+x=[]
+y=[]
+for i in range(0,100):
+    x.append(random.random())
+for i in range(0,100,5):
+    y.append(random.random())
+
+plt.hist([x,y], histtype='barstacked', cumulative=True)
+
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{fig15.png}
+\end{center}
+
+\newpage
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+
+labels = 'Candidate1', 'Candidate2', 'Candidate3', 'Candidate4'
+votes = [315, 130, 245, 210]
+sizes=votes
+colors = ['gold', 'yellowgreen', 'lightcoral', 'lightskyblue']
+explode = (0.1, 0, 0, 0) # explode 1st slice
+# Plot
+plt.pie(sizes, explode=explode, labels=labels, colors=colors,
+autopct='%1.1f%%', shadow=True, startangle=140)
+plt.axis('equal')
+
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{fig16.png}
+\end{center}
+
+\newpage
 \end{document}

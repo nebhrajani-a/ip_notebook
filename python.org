@@ -25,7 +25,7 @@ Bookmarks tree.
    This notebook is written in an =org-mode= file and exported to PDF via LaTeX, Org version 9.3.6 on
   GNU Emacs 25.2.2 (x86_ 64-pc-linux-gnu, GTK+ Version 3.22.21) of
   2017-09-23, modified by Debian, on a Foxconn Core i7 NanoPC running Linux
-  Mint 19.3 XFCE 64-bit. Python 2.7.17 of 2020-04-15 is used
+  Mint 19.3 XFCE 64-bit. Python 3.6.9 of 2020-04-15 is used
   throughout unless specified otherwise. For the Org or LaTeX source, contact
   \href{mailto:aditya.v.nebhrajani@gmail.com}{aditya.v.nebhrajani@gmail.com}.
 
@@ -667,11 +667,12 @@ Bookmarks tree.
     print(zoo.groupby('animal').mean())
     print(zoo.groupby('animal').mean().water_need)
   #+END_SRC
-  #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
  #+BEGIN_SRC python :results output :exports both
     import pandas as pd
     #Create a Dictionary of series
-    d = {'Name':pd.Series(['Sachin','Dhoni','Virat','Rohit','Shikhar']), 'Age':pd.Series([26,25,25,24,31]), 'Score':pd.Series([87,67,89,55,47])}
+    d = {'Name':pd.Series(['Sachin','Dhoni','Virat','Rohit','Shikhar']),'Age':pd.Series([26,25,25,24,31]), 'Score':pd.Series([87,67,89,55,47])}
     #Create a DataFrame
     df = pd.DataFrame(d)
     print("Dataframe contents without sorting")
@@ -679,7 +680,8 @@ Bookmarks tree.
     df=df.sort_values(by=['Age', 'Score'],ascending=[True,False])
     print("Dataframe contents after sorting")
     print (df)
-  #+END_SRC
+ #+END_SRC
+
  #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
  #+BEGIN_SRC python :results output :exports both
    import pandas as pd
@@ -751,7 +753,7 @@ blocks in =matplotlib=. These prevent repetitive code writing.
   plt.savefig(path)
   return path
 #+END_SRC
-
+\newpage
 ** Some Simple Plots
     #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
     #+HEADER: :var path="fig1.png"
@@ -764,7 +766,7 @@ blocks in =matplotlib=. These prevent repetitive code writing.
       plt.plot(x, b, 'b')
       <<plt-postamble>>
     #+END_SRC
-
+\newpage
  #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
  #+HEADER: :var path="fig2.png"
   #+BEGIN_SRC python :results file :exports both :noweb strip-export
@@ -777,6 +779,7 @@ blocks in =matplotlib=. These prevent repetitive code writing.
    <<plt-postamble>>
  #+END_SRC
 
+\newpage
  #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
  #+HEADER: :var path="fig3.png"
  #+BEGIN_SRC python :results file :exports both :noweb strip-export
@@ -790,6 +793,7 @@ blocks in =matplotlib=. These prevent repetitive code writing.
    <<plt-postamble>>
  #+END_SRC
 
+\newpage
  #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
  #+HEADER: :var path="fig4.png"
  #+BEGIN_SRC python :results file :exports both :noweb strip-export
@@ -807,6 +811,7 @@ blocks in =matplotlib=. These prevent repetitive code writing.
    <<plt-postamble>>
  #+END_SRC
 
+\newpage
  #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
  #+HEADER: :var path="fig5.png"
  #+BEGIN_SRC python :results file :exports both :noweb strip-export
@@ -819,6 +824,7 @@ blocks in =matplotlib=. These prevent repetitive code writing.
    <<plt-postamble>>
  #+END_SRC
 
+\newpage
 #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
 #+HEADER: :var path="fig6.png"
 #+BEGIN_SRC python :results file :exports both :noweb strip-export
@@ -832,6 +838,7 @@ blocks in =matplotlib=. These prevent repetitive code writing.
   <<plt-postamble>>
 #+END_SRC
 
+\newpage
 #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
 #+HEADER: :var path="fig7.png"
 #+BEGIN_SRC python :results file :exports both :noweb strip-export
@@ -845,6 +852,7 @@ blocks in =matplotlib=. These prevent repetitive code writing.
   <<plt-postamble>>
 #+END_SRC
 
+\newpage
 #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
 #+HEADER: :var path="fig8.png"
 #+BEGIN_SRC python :results file :exports both :noweb strip-export
@@ -859,6 +867,7 @@ blocks in =matplotlib=. These prevent repetitive code writing.
   <<plt-postamble>>
 #+END_SRC
 
+\newpage
 #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
 #+HEADER: :var path="fig9.png"
 #+BEGIN_SRC python :results file :exports both :noweb strip-export
@@ -872,6 +881,7 @@ blocks in =matplotlib=. These prevent repetitive code writing.
   <<plt-postamble>>
 #+END_SRC
 
+\newpage
 #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
 #+HEADER: :var path="fig10.png"
 #+BEGIN_SRC python :results file :exports both :noweb strip-export
@@ -884,6 +894,7 @@ blocks in =matplotlib=. These prevent repetitive code writing.
   <<plt-postamble>>
 #+END_SRC
 
+\newpage
 #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
 #+HEADER: :var path="fig11.png"
 #+BEGIN_SRC python :results file :exports both :noweb strip-export
@@ -896,6 +907,7 @@ blocks in =matplotlib=. These prevent repetitive code writing.
   <<plt-postamble>>
 #+END_SRC
 
+\newpage
 #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
 #+HEADER: :var path="fig12.png"
 #+BEGIN_SRC python :results file :exports both :noweb strip-export
@@ -911,3 +923,65 @@ blocks in =matplotlib=. These prevent repetitive code writing.
   plt.legend()
   <<plt-postamble>>
 #+END_SRC
+
+\newpage
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig13.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import random
+  x=[]
+  for i in range(0,100):
+      x.append(random.random())
+  plt.hist(x, bins=50)
+  <<plt-postamble>>
+#+END_SRC
+
+\newpage
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig14.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import random
+  x=[]
+  for i in range(0,100):
+      x.append(random.random())
+  plt.hist(x, bins=20, cumulative=True)
+  <<plt-postamble>>
+#+END_SRC
+
+\newpage
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig15.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import random
+  x=[]
+  y=[]
+  for i in range(0,100):
+      x.append(random.random())
+  for i in range(0,100,5):
+      y.append(random.random())
+
+  plt.hist([x,y], histtype='barstacked', cumulative=True)
+  <<plt-postamble>>
+#+END_SRC
+
+\newpage
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig16.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  labels = 'Candidate1', 'Candidate2', 'Candidate3', 'Candidate4'
+  votes = [315, 130, 245, 210]
+  sizes=votes
+  colors = ['gold', 'yellowgreen', 'lightcoral', 'lightskyblue']
+  explode = (0.1, 0, 0, 0) # explode 1st slice
+  # Plot
+  plt.pie(sizes, explode=explode, labels=labels, colors=colors,
+  autopct='%1.1f%%', shadow=True, startangle=140)
+  plt.axis('equal')
+  <<plt-postamble>>
+#+END_SRC
+
+\newpage
