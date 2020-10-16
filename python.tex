@@ -1,4 +1,4 @@
-% Created 2020-10-16 Fri 12:37
+% Created 2020-10-16 Fri 13:32
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -36,9 +36,9 @@
 \newpage
 
 \section{Preamble}
-\label{sec:org3f44fd5}
+\label{sec:orgc7b6f3e}
 \subsection{Notebook Conventions}
-\label{sec:orgcbee16f}
+\label{sec:orgf42d868}
 All code in this notebook is in Python unless specified otherwise.
 All code is syntax-highlighted, placed in boxes, and is line
 numbered. The output of the interpreter on \texttt{stdout} is printed directly below it,
@@ -57,7 +57,7 @@ It is recommended that you navigate using the hyperlinked TOC or the Adobe
 Bookmarks tree.
 
 \subsection{Hardware and Software Used}
-\label{sec:org52e84fc}
+\label{sec:orgaca7fbb}
 
  This notebook is written in an \texttt{org-mode} file and exported to PDF via \LaTeX{}, Org version 9.3.6 on
 GNU Emacs 25.2.2 (x86\_ 64-pc-linux-gnu, GTK+ Version 3.22.21) of
@@ -67,7 +67,7 @@ throughout unless specified otherwise. For the Org or \LaTeX{} source, contact
 \href{mailto:aditya.v.nebhrajani@gmail.com}{aditya.v.nebhrajani@gmail.com}.
 
 \subsection{Acknowledgements}
-\label{sec:org3a87344}
+\label{sec:org8be2c76}
 I am grateful to the FSF, the GNU Project, the Linux foundation,
 the Emacs, StackExchange and FLOSS communities, and my father,
 who taught me that a world outside commercialized technology does
@@ -75,9 +75,9 @@ exist and thrive.
 \newpage
 
 \section{NumPy}
-\label{sec:org0eecdb4}
+\label{sec:orgc5afff0}
 \subsection{Worksheet 2020-07-26}
-\label{sec:orgbc43303}
+\label{sec:org7083366}
 
 \begin{enumerate}
 \item Create an ndarray with values ranging from 10 to 49 each spaced with a difference of 3.
@@ -355,9 +355,9 @@ print(a[::-1,::-1])
 
 \newpage
 \section{Pandas}
-\label{sec:org5edab02}
+\label{sec:orge2965be}
 \subsection{Series}
-\label{sec:org533fa5d}
+\label{sec:orgcc451d2}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Import numpy and pandas
 import pandas as pd
@@ -716,7 +716,7 @@ Name: animal, dtype: bool
 \end{minted}
 
 \subsection{DataFrame}
-\label{sec:org881c492}
+\label{sec:org770a983}
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Empty dataframe
@@ -798,14 +798,14 @@ print(d_frame)
 
 \begin{verbatim}
           0         1         2         3
-0  0.585745 -0.001168  1.444893  0.043500
-1 -0.696433  1.048100  0.570695  0.164102
-2  0.259904 -0.141418  0.302201 -0.304243
-3  0.187015 -0.279834  1.214409  0.161543
-4  0.291165  0.870026 -1.872000 -0.794733
-5  0.596848 -1.766864 -0.672895 -0.195408
-6  1.365069 -0.279160 -0.301969  0.111645
-7  0.698949 -1.138789 -1.481461 -0.947795
+0  1.430385  0.458970  0.942348  1.802464
+1 -0.361400 -1.302852 -0.154312  0.982827
+2  1.781622  1.741469 -0.602436  0.127425
+3  1.027146 -0.921870  0.935537 -2.424546
+4 -0.469162 -0.377110 -0.517063  0.931929
+5 -0.680141 -1.916021 -0.403198 -0.878187
+6 -0.373937  1.008826  0.093256  1.336087
+7  0.427973 -0.189043 -1.140688 -1.914831
 \end{verbatim}
 
 
@@ -1456,7 +1456,7 @@ TV       12000    NaN    10000
 
 \newpage
 \section{Matplotlib}
-\label{sec:orgcf3affc}
+\label{sec:org96bb606}
 The next two blocks are the preamble and the postamble for all code
 blocks in \texttt{matplotlib}. These prevent repetitive code writing.
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
@@ -1472,7 +1472,7 @@ return path
 \end{minted}
 \newpage
 \subsection{Some Simple Plots}
-\label{sec:orga021cf6}
+\label{sec:org2e7bedf}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 
 x = np.arange(1, 10, 0.1)
@@ -1647,6 +1647,23 @@ df1.plot.bar()
 \begin{center}
 \includegraphics[width=.9\linewidth]{fig11.png}
 \end{center}
+
+\newpage
+\begin{minted}[,frame=single, framesep=10pt, linenos]{python}
+
+import pandas as pd
+df1 = pd.DataFrame({'Jan':[140, 160, 140, 180, 110], 'Feb':[130, 200, 180, 150, 160], 'Mar':[130, 130, 150, 200, 130], 'Apr':[190, 200, 170, 120, 110], 'May':[160, 200, 190, 180, 120], 'Jun':[200, 170, 140, 140, 170], 'Jul':[150, 110, 170, 110, 130], 'Aug':[170, 160, 180, 130, 200], 'Sep':[190, 130, 190, 150, 150], 'Oct':[170, 140, 150, 190, 160], 'Nov':[150, 170, 140, 110, 170], 'Dec':[120, 200, 170, 140, 130]})
+df1.index=['North', 'South', 'East', 'West', 'Central']
+print(df1)
+df1.plot.line()
+
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{fig0.png}
+\end{center}
+
+
 
 \newpage
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
