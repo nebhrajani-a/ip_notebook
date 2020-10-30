@@ -920,8 +920,6 @@ blocks in =matplotlib=. These prevent repetitive code writing.
   <<plt-postamble>>
 #+END_SRC
 
-
-
 \newpage
 #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
 #+HEADER: :var path="fig12.png"
