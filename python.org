@@ -1,0 +1,1000 @@
+#+title: Python IP Class Notebook
+#+author: Nebhrajani A. V.
+#+date:
+#+LATEX_HEADER: \setminted{breaklines, autogobble}
+#+LATEX_HEADER: \usemintedstyle{emacs}
+
+\newpage
+
+* Preamble
+** Notebook Conventions
+   All code in this notebook is in Python unless specified otherwise.
+   All code is syntax-highlighted, placed in boxes, and is line
+   numbered. The output of the interpreter on =stdout= is printed directly below it,
+   =verbatim=, thus.
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+BEGIN_SRC python :results output :exports both
+  # Print Hello world!
+  print("Hello world!")
+#+END_SRC
+It is recommended that you navigate using the hyperlinked TOC or the Adobe
+Bookmarks tree.
+
+** Hardware and Software Used
+
+   This notebook is written in an =org-mode= file and exported to PDF via LaTeX, Org version 9.3.6 on
+  GNU Emacs 25.2.2 (x86_ 64-pc-linux-gnu, GTK+ Version 3.22.21) of
+  2017-09-23, modified by Debian, on a Foxconn Core i7 NanoPC running Linux
+  Mint 19.3 XFCE 64-bit. Python 3.6.9 of 2020-04-15 is used
+  throughout unless specified otherwise. For the Org or LaTeX source, contact
+  \href{mailto:aditya.v.nebhrajani@gmail.com}{aditya.v.nebhrajani@gmail.com}.
+
+** Acknowledgements
+   I am grateful to the FSF, the GNU Project, the Linux foundation,
+   the Emacs, StackExchange and FLOSS communities, and my father,
+   who taught me that a world outside commercialized technology does
+   exist and thrive.
+\newpage
+
+* NumPy
+** Worksheet 2020-07-26
+
+   1. Create an ndarray with values ranging from 10 to 49 each spaced with a difference of 3.
+       #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+        #+BEGIN_SRC python :results output :exports both
+         import numpy as np
+         arr=np.arange(10,50,3,dtype=int)
+         print(arr)
+       #+END_SRC
+
+   2. Find the output of the following Python code:
+
+      #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+      #+BEGIN_SRC python :results output :exports both
+        x="hello world"
+        print(x[:2],x[:-2],x[-2:])
+      #+END_SRC
+
+   3. Predict the output of the following code fragments:
+
+      #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+      #+BEGIN_SRC python :results output :exports both
+        import numpy as np
+        x=np.array([1,2,3])
+        y=np.array([3,2,1])
+        z=np.concatenate([x,y])
+        print(z)
+      #+END_SRC
+
+   4. Consider following two arrays: Array1=
+      array([0,1,2],[3,4,5],[6,7,8]]) and Array2=
+      array([10,11,12],[13,14,15],[16,17,18]]). Write NumPy command to concatenate Array1 and Array2:
+
+      a) Row wise
+          #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+           #+BEGIN_SRC python :results output :exports both
+            import numpy as np
+            Array1= np.array([[0,1,2],[3,4,5],[6,7,8]])
+            Array2= np.array([[10,11,12],[13,14,15],[16,17,18]])
+            rarr=np.concatenate([Array1,Array2],axis=1)
+            print(rarr)
+          #+END_SRC
+      b) Column wise
+          #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+           #+BEGIN_SRC python :results output :exports both
+            import numpy as np
+            Array1= np.array([[0,1,2],[3,4,5],[6,7,8]])
+            Array2= np.array([[10,11,12],[13,14,15],[16,17,18]])
+            carr=np.concatenate([Array1,Array2],axis=0)
+            print(carr)
+          #+END_SRC
+
+   5. To create sequences of numbers, NumPy provides a function _(a)arange_ analogous to range that returns arrays instead of lists.
+
+   6. Find the output of following program.
+     #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+     #+BEGIN_SRC python :results output :exports both
+       import numpy as np
+       a=np.array([30,60,70,30,10,86,45])
+       print(a[-2:6])
+    #+END_SRC
+
+   7. Write a NumPy program to create a 2d array with 1 on the border and 0 inside.
+     #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+     #+BEGIN_SRC python :results output :exports both
+       import numpy as np
+       x = np.ones((5,5))
+       print("Original array:")
+       print(x)
+       print("1 on the border and 0 inside in the array")
+       x[1:-1,1:-1] = 0
+       print(x)
+     #+END_SRC
+
+   8. Given following ndarray A: ([[2, 4, 6], [7, 8, 9], [1, 2, 3]])
+      Write the python statements to perform the array slices in the
+      way so as to extract first row and second column.
+          #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+           #+BEGIN_SRC python :results output :exports both
+            import numpy as np
+            A = np.array([[2,4,6],[7,8,9],[1,2,3]])
+            print(A[0,:])
+            print(A[:,1])
+          #+END_SRC
+
+   9. Write python statement to create a two- dimensional array of 4 rows and 3 columns. The array should be filled with ones.
+     #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+     #+BEGIN_SRC python :results output :exports both
+       import numpy as np
+       x = np.ones((4,3))
+       print(x)
+     #+END_SRC
+
+   10. Find the output of following program.
+        #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+         #+BEGIN_SRC python :results output :exports both
+          import numpy as np
+          d = np.array([10,20,30,40,50,60,70])
+          print(d[-5:])
+        #+END_SRC
+
+   11. State at least two differences between a NumPy array and a list
+       #+attr_latex: :align |l|l|
+       |------------------------------------------+------------------------------------------------|
+       | NumPy Array                              | List                                           |
+       |------------------------------------------+------------------------------------------------|
+       | By default, numpy arrays are homogeneous | They can have elements of different data types |
+       | Element-wise operations are possible     | Element-wise operations don’t work on lists    |
+       | They take up less space                  | They take up more space                        |
+       |------------------------------------------+------------------------------------------------|
+
+   12. Find the output of following program.
+        #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+         #+BEGIN_SRC python :results output :exports both
+          import numpy as np
+          d=np.array([10,20,30,40,50,60,70])
+          print(d[-1:-4:-1])
+        #+END_SRC
+
+   13. Write the output of the following code.
+        #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+         #+BEGIN_SRC python :results output :exports both
+          import numpy as np
+          a=[[1,2,3,4],[5,6,7,8]]
+          b=[[1,2,3,4],[5,6,7,8]]
+          n=np.concatenate((a, b), axis=0)
+          print(n[1])
+          print(n[1][1])
+        #+END_SRC
+
+   14. Which of the following is contained in NumPy library?
+       a) *N-Dimensional Array Object*
+       b) Series
+       c) DataFrame
+       d) Plot
+
+   15. Point out the correct statement:
+       a) NumPy main object is the homogeneous multidimensional array
+       b) In Numpy, dimensions are called axes
+       c) NumPy array class is called ndarray
+       d) *All of the above*
+
+   16. When the fromiter() is preferred over array()?
+       *A:* Fromiter() is preferred over array()for creating non-numeric
+       sequences like strings and dictionaries.
+
+   17. What is the purpose of order argument in empty(). What do ‘C’
+       and ‘F’ stands for? What is the default value of order
+       argument?
+       *A:* The “order” argument arranges the elements of the
+       array row-wise or column-wise. C order arranges elements column
+       wise and means “c”-like, whereas F order arranges elements row
+       wise and means “fortran”-like. Default value of order argument
+       is C.
+
+   18. Differentiate split() from hsplit() and vsplit().
+       *A:* Split() function is a general function which can be used to split an
+       array in numpy both horizontally and vertically by providing an
+       axis. If the axis is 0 it is the same as hsplit() and if the
+       axis is 1 it behaves as vsplit(). The difference between
+       split() and hsplit(),vsplit() is that split() allows you to
+       specify the axis that you wish, and hsplit() and vsplit() are
+       for specific axes.
+
+   19. Find the output:
+       a)
+            #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+             #+BEGIN_SRC python :results output :exports both
+              import numpy as np
+              a = np.linspace(2.5,5,6)
+              print(a)
+            #+END_SRC
+
+       b)
+           #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+            #+BEGIN_SRC python :results output :exports both
+             import numpy as np
+             a=np.array([[0,2,4,6],[8,10,12,14],[16,18,20,22],[24,26,28,30]])
+             print(a)
+             print(a[:3,3:])
+             print(a[1::2,:3])
+             print(a[-3:-1,-4::2])
+             print(a[::-1,::-1])
+           #+END_SRC
+
+\newpage
+* Pandas
+** Series
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+BEGIN_SRC python :results output :exports both
+  # Import numpy and pandas
+  import pandas as pd
+  import numpy as np
+
+  # Create an empty series
+  s = pd.Series()
+  print(s)
+
+  # Series from ndarray
+  data = np.array(['a', 'b', 'c', 'd'])
+
+  ## Without index
+  s = pd.Series(data)
+  print(s)
+  ## With index
+  s = pd.Series(data, index = [100, 101, 102, 103])
+  print(s)
+
+  # Scalar series
+  s = pd.Series(5, index = [0, 1, 2, 3])
+  print(s)
+
+  # Series from dictionary
+  data = {'a' : 0., 'b' : 1., 'c' : 2.}
+
+  ## Without index
+  s = pd.Series(data)
+  print(s)
+  ## With index
+  s = pd.Series(data, index = ['b', 'c', 'd', 'a'])
+  print(s)
+
+  # Another dictionary example
+  f_dict = {'apples': 500, 'kiwi': 20, 'oranges': 100, 'cherries': 6000}
+  print(f_dict)
+
+  arr = pd.Series(f_dict)
+  print('\nArray Items')
+  print(arr)
+#+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+   # Indexing
+   import pandas as pd
+   from pandas import Series
+   arr = Series([22, 44, 66, 88, 108])
+   print(arr[[1, 3, 0, 4]])
+ #+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+   # Series operations
+   import pandas as pd
+   ds1 = pd.Series([2, 4, 6, 8, 10])
+   ds2 = pd.Series([1, 3, 5, 7, 9])
+   print(ds1)
+   print(ds2)
+   ds = ds1 + ds2
+   print("Add two Series:")
+   print(ds)
+   print("Subtract two Series:")
+   ds = ds1 - ds2
+   print(ds)
+   print("Multiply two Series:")
+   ds = ds1 * ds2
+   print(ds)
+   print("Divide Series1 by Series2:")
+   ds = ds1 / ds2
+   print(ds)
+ #+END_SRC
+
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+  # Series to array
+  import pandas as pd
+  import numpy as np
+  s1 = pd.Series(['100', '200', '300', 'python'])
+  print("Original data series")
+  print(s1)
+  print("Series to array")
+  a = np.array(s1.values.tolist())
+  print(a)
+#+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+   # Heads and tails
+   import pandas as pd
+   import math
+   s = pd.Series(data = [math.sqrt(x) for x in range(1,10)],
+                 index = [x for x in range(1,10)])
+   print(s)
+   print(s.head(6))
+   print(s.tail(7))
+   print(s.head())
+   print(s.tail())
+ #+END_SRC
+
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+  # Sorting pandas series
+  import pandas as pd
+  s = pd.Series(['100', '200', 'python', '300.12', '400'])
+  print("Original data series:")
+  print(s)
+  asc_s = pd.Series(s).sort_values()
+  print(asc_s)
+  dsc_s = pd.Series(s).sort_values(ascending=False)
+  print(dsc_s)
+
+  # Appending
+  new_s = s.append(pd.Series(['500', 'php']))
+  print(new_s)
+#+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+   # Mean and median
+   import pandas as pd
+   s = pd.Series(data = [1,2,3,4,5,6,7,8,9,5,3])
+   print("Original data series:")
+   print(s)
+   print("Mean:")
+   print(s.mean())
+   print("Standard deviation:")
+   print(s.std())
+ #+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+   # Isin function
+   import numpy as np
+   import pandas as pd
+
+   s = pd.Series(['dog', 'cow', 'dog', 'cat', 'lion'], name='animal')
+
+   r = s.isin(['dog', 'cat'])
+   print(r)
+ #+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+   # Appending and concatenation
+    import numpy as np
+    import pandas as pd
+
+    # Input
+    ser1 = pd.Series(range(5))
+    ser2 = pd.Series(list('abcde'))
+
+    # Vertical
+    ser3 = ser1.append(ser2)
+    print(ser3)
+
+    # Or using Pandas concatenate along axis 0
+    ser3 = pd.concat([ser1, ser2], axis = 0)
+    print(ser3)
+
+    # Horizontal (into a dataframe)
+    ser3 = pd.concat([ser1, ser2], axis = 1)
+    print(ser3)
+ #+END_SRC
+
+** DataFrame
+
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+BEGIN_SRC python :results output :exports both
+  # Empty dataframe
+  import pandas as pd
+
+  data = pd.DataFrame()
+  print(data)
+#+END_SRC
+
+
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+BEGIN_SRC python :results output :exports both
+  # Dataframe from list
+  import pandas as pd
+
+  table = [1, 2, 3, 4, 5]
+  data = pd.DataFrame(table)
+  print(data)
+#+END_SRC
+
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+BEGIN_SRC python :results output :exports both
+  # Dataframe from mixed list
+  import pandas as pd
+
+  table = [[1, 'Nebhrajani'], [2, 'Python'], [3, 'Hello']]
+  data = pd.DataFrame(table)
+  print(data)
+#+END_SRC
+
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+BEGIN_SRC python :results output :exports both
+  # Column labels
+  import pandas as pd
+
+  table = [[1, 'Nebhrajani'], [2, 'Python'], [3, 'Hello']]
+  data = pd.DataFrame(table, columns = ['S.No', 'Name'])
+  print(data)
+#+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+BEGIN_SRC python :results output :exports both
+   # Random numbers dataframe
+   import numpy as np
+   import pandas as pd
+
+   d_frame = pd.DataFrame(np.random.randn(8, 4))
+   print(d_frame)
+ #+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+    # Dataframe from dict
+    import pandas as pd
+
+    table = {'name': ['Aditya', 'Aryan', 'Nebhrajani', 'Sahej'],
+            'Salary':[1000000, 1200000, 900000, 1100000]}
+
+    data = pd.DataFrame(table)
+    print(data)
+ #+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+   # Dataframe from some given dictionary data
+   import pandas as pd
+   import numpy as np
+
+   exam_data  = {'name': ['Anastasia', 'Dima', 'Katherine', 'James',
+                 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],
+           'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],
+           'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],
+           'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes',
+                       'no', 'no', 'yes']}
+   labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+   df = pd.DataFrame(exam_data , index=labels)
+   print(df)
+ #+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+   # Messing with columns
+   import pandas as pd
+
+   table = {'name': ['Aditya', 'Aryan', 'Nebhrajani', 'Sahej'],
+            'Age': [25, 32, 30, 26],
+            'Profession': ['Developer', 'Analyst', 'Admin', 'HR'],
+            'Salary':[1000000, 1200000, 900000, 1100000]
+            }
+
+   data1 = pd.DataFrame(table)
+   print(data1)
+
+   print('\n After Changing the Column Order')
+   data2 = pd.DataFrame(table, columns = ['name', 'Profession', 'Salary',
+                                          'Age'])
+   print(data2)
+   print('\n Using Wrong Column ')
+   data3 = pd.DataFrame(table, columns = ['name', 'Qualification', 'Salary',
+                                          'Age'])
+   print(data3)
+ #+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+    # Dataframe indexing
+    import pandas as pd
+
+    table = {'name': ['Aditya', 'Aryan', 'Nebhrajani', 'Sahej'],
+             'Age': [25, 32, 30, 26],
+             'Profession': ['Developer', 'Analyst', 'Admin', 'HR'],
+             'Salary':[1000000, 1200000, 900000, 1100000]
+             }
+    data = pd.DataFrame(table)
+    print(data)
+
+    print('\nSetting name as an index')
+    new_data = data.set_index('name')
+    print(new_data)
+
+    print('\nReturn Index Aditya Details')
+    print(new_data.loc['Aditya'])
+ #+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+   # Getting columns
+   import pandas as pd
+
+   table = {'name': ['Aditya', 'Aryan', 'Nebhrajani', 'Sahej'],
+            'Age': [25, 31, 35, 26],
+            'Salary':[100000, 120000, 700000, 110000]
+               }
+
+   data = pd.DataFrame(table)
+   print(data)
+   print('\nShape and Size of a DataFrame')
+   print(data.shape)
+   data2 = pd.DataFrame(table, columns = ['name', 'Profession', 'Salary',
+                                          'Age'])
+   data3 = pd.DataFrame(table, columns = ['name', 'Qualification', 'Salary',
+                                          'Age'])
+   print('Data2 Values ')
+   print(data2.values)
+   print('\nData3 Values ')
+   print(data3.values)
+   data1 = pd.DataFrame(table)
+   table = {'Age': [25, 32, 30, 26],
+            'Salary':[1000000, 1200000, 900000, 1100000]
+            }
+   data4 = pd.DataFrame(table)
+   data1.index.name = 'Emp No'
+   print(data1)
+   print()
+   data4.index.name = 'Cust No'
+   print(data4)
+   data1.columns.name = 'Employee Details'
+   print(data1)
+   data4.columns.name = 'Customers Information'
+   print(data4)
+   data1 = pd.DataFrame(table)
+   print(data1)
+   print('\nDescribe function result')
+   print(data1.describe())
+ #+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+   # Getting rows using loc
+   import pandas as pd
+   table = {'name': ['Jai', 'Mike', 'Suresh', 'Sahej'],
+            'Age': [25, 32, 30, 26],
+            'Profession': ['Developer', 'Analyst', 'Admin', 'HR'],
+            'Salary':[1000000, 1200000, 900000, 1100000]}
+
+   data = pd.DataFrame(table, index = ['a', 'b', 'c', 'd'])
+   print(data)
+
+   print('\n---Select b row from a DataFrame---')
+   print(data.loc['b'])
+
+   print('\n---Select c row from a DataFrame---')
+   print(data.loc['c'])
+
+   print('\n---Select b and d rows from a DataFrame---')
+   print(data.loc[['b', 'd']])
+ #+END_SRC
+
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+BEGIN_SRC python :results output :exports both
+  # Getting columns using loc
+  import pandas as pd
+  table = {'Name': ['Abhimanyu', 'Jai', 'Suresh', 'Sahej', 'Shail'],
+           'Age': [35, 25, 32, 30, 29],
+           'Profession': ['Manager', 'Developer', 'Analyst', 'Admin', 'HR'],
+           'Sale':[422.19, 22.55, 119.470, 200.190, 44.55],
+           'Salary':[12000, 10000, 14000, 11000, 14000]}
+
+  data = pd.DataFrame(table)
+  print(data)
+
+  print('\n---Select Name, Sale column in a DataFrame---')
+  print(data.loc[:, ['Name', 'Sale']])
+
+  print('\n---Select Name, Profession, Salary in a DataFrame---')
+  print(data.loc[:, ['Name', 'Profession', 'Salary']])
+
+  print('\n---Select rows from 1 to 2 in a DataFrame---')
+  print(data.loc[1:3, ['Name', 'Profession', 'Salary']])
+#+END_SRC
+
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+  # Getting rows using iloc
+  import pandas as pd
+
+  table = {'name': ['Jai', 'Mit', 'Suresh', 'Tammanah'],
+           'Age': [25, 32, 30, 26],
+           'Profession': ['Developer', 'Analyst', 'Admin', 'HR'],
+           'Salary':[1000000, 1200000, 900000, 1100000]}
+  data = pd.DataFrame(table, index = ['a', 'b', 'c', 'd'])
+  print(data)
+
+  print('\n---Select 1st row from a DataFrame---')
+  print(data.iloc[1])
+
+  print('\n---Select 3rd row from a DataFrame---')
+  print(data.iloc[3])
+
+  print('\n---Select 1 and 3 rows from a DataFrame---')
+  print(data.iloc[[1, 3]])
+#+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+   # Assignment: conditional loc-ing
+   import pandas as pd
+   import numpy as np
+
+   data = pd.DataFrame({
+       'Age' :     [ 10, 22, 13, 21, 12, 11, 17],
+       'Section' : [ 'A', 'B', 'C', 'B', 'B', 'A', 'A'],
+       'City' :    [ 'Gurgaon', 'Delhi', 'Mumbai', 'Delhi',
+                     'Mumbai', 'Delhi', 'Mumbai'],
+       'Gender' :  [ 'M', 'F', 'F', 'M', 'M', 'M', 'F'],
+       'Favourite_Color' : [ 'red', np.NAN, 'yellow', np.NAN, 'black',
+                             'green', 'red']})
+   print(data)
+   print(data.iloc[1:3,2:4])
+   print(data.loc[data.Age >= 15])
+   print(data.loc[(data.Age >= 12) & (data.Gender == 'M')])
+   print(data.loc[(data.Age >= 12), ['City', 'Gender']])
+   data.loc[(data.Age >= 12), ['Section']] = 'M'
+   print(data)
+ #+END_SRC
+
+  #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+    import pandas as pd
+
+    zoo = pd.read_csv('/home/aditya/Downloads/zoo.csv', delimiter = ',')
+    print(zoo)
+    print(zoo.count())
+    print(zoo.animal.count())
+    print(zoo.water_need.sum())
+    print(zoo.sum())
+    print(zoo.water_need.min())
+    print(zoo.water_need.max())
+    print(zoo.water_need.mean())
+    print(zoo.water_need.median())
+    print(zoo.groupby('animal').mean())
+    print(zoo.groupby('animal').mean().water_need)
+  #+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+    import pandas as pd
+    #Create a Dictionary of series
+    d = {'Name':pd.Series(['Sachin','Dhoni','Virat','Rohit','Shikhar']),'Age':pd.Series([26,25,25,24,31]), 'Score':pd.Series([87,67,89,55,47])}
+    #Create a DataFrame
+    df = pd.DataFrame(d)
+    print("Dataframe contents without sorting")
+    print (df)
+    df=df.sort_values(by=['Age', 'Score'],ascending=[True,False])
+    print("Dataframe contents after sorting")
+    print (df)
+ #+END_SRC
+
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+   import pandas as pd
+   import numpy as np
+   #Create a Dictionary of series
+   d = {'Name':pd.Series(['Sachin','Dhoni','Virat','Rohit','Shikhar']),'Age':pd.Series([26,25,25,24,31]), 'Score':pd.Series([87,67,89,55,47])}
+   #Create a DataFrame
+   df = pd.DataFrame(d)
+   df=df.reindex([1,4,3,2,0])
+   print("Dataframe contents without sorting")
+   print (df)
+   df1=df.sort_index()
+   print("Dataframe contents after sorting")
+   print (df1)
+ #+END_SRC
+
+  #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+  #+BEGIN_SRC python :results output :exports both
+    import pandas as pd
+    import numpy as np
+    #Create a Dictionary of series
+    d = {'Name':pd.Series(['Sachin','Dhoni','Virat','Rohit','Shikhar']),
+    'Age':pd.Series([26,25,25,24,31]),
+    'Score':pd.Series([87,67,89,55,47])}
+    #Create a DataFrame
+    df = pd.DataFrame(d)
+    print("Dataframe contents")
+    print (df)
+    print(df.var())
+  #+END_SRC
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+BEGIN_SRC python :results output :exports both
+   from collections import OrderedDict
+   from pandas import DataFrame
+   import pandas as pd
+   import numpy as np
+   table = OrderedDict((
+   ("ITEM", ['TV', 'TV', 'AC', 'AC']),
+   ('COMPANY',['LG', 'VIDEOCON', 'LG', 'SONY']),
+   ('RUPEES', ['12000', '10000', '15000', '14000']),
+   ('USD', ['700', '650', '800', '750'])
+   ))
+   d = DataFrame(table)
+   print("DATA OF DATAFRAME")
+   print(d)
+   p = d.pivot(index='ITEM', columns='COMPANY', values='RUPEES')
+   print("\n\nDATA OF PIVOT")
+   print(p)
+   print (p[p.index=='TV'].LG.values)
+ #+END_SRC
+ \newpage
+* Matplotlib
+  # http://kotfic.github.io/org-mode-export-of-matplotlib-images-etc.html
+
+The next two blocks are the preamble and the postamble for all code
+blocks in =matplotlib=. These prevent repetitive code writing.
+#+NAME: plt-preamble
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+BEGIN_SRC python :results file
+  import matplotlib
+  matplotlib.use('Agg')
+  import matplotlib.pyplot as plt
+  import numpy as np
+#+END_SRC
+
+#+NAME: plt-postamble
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+BEGIN_SRC python :results file
+  plt.savefig(path)
+  return path
+#+END_SRC
+\newpage
+** Some Simple Plots
+    #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+    #+HEADER: :var path="fig1.png"
+    #+BEGIN_SRC python :results file :exports both :noweb strip-export
+      <<plt-preamble>>
+      x = np.arange(1, 10, 0.1)
+      a = np.cos(x)
+      b = np.sin(x)
+      plt.plot(x, a, 'r')
+      plt.plot(x, b, 'b')
+      <<plt-postamble>>
+    #+END_SRC
+\newpage
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+HEADER: :var path="fig2.png"
+  #+BEGIN_SRC python :results file :exports both :noweb strip-export
+   <<plt-preamble>>
+   over = [1,2,3,4,5]
+   run = [13,5,7,16,4]
+   plt.xlabel("Overs")
+   plt.ylabel("Runs")
+   plt.plot(over, run, 'r', marker='d', markersize=6, markeredgecolor='red')
+   <<plt-postamble>>
+ #+END_SRC
+
+\newpage
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+HEADER: :var path="fig3.png"
+ #+BEGIN_SRC python :results file :exports both :noweb strip-export
+   <<plt-preamble>>
+   over = [1,2,3,4,5]
+   run = [13,5,7,16,4]
+   plt.xlabel("Overs")
+   plt.ylabel("Runs")
+   plt.bar(over, run, width=1/2, color = ['r', 'g', 'b', 'k', 'c'])
+   plt.show()
+   <<plt-postamble>>
+ #+END_SRC
+
+\newpage
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+HEADER: :var path="fig4.png"
+ #+BEGIN_SRC python :results file :exports both :noweb strip-export
+   <<plt-preamble>>
+   over = np.arange(1.0,6.0,1.0)
+   ind = [13,5,7,16,14]
+   nz = [3,5,4,8,11]
+   plt.xlabel("Overs")
+   plt.ylabel("Runs")
+   plt.xlim(0,6)
+   plt.title("Cricket Analysis")
+   plt.bar(over, ind, color='b', width=0.25, label = 'IND')
+   plt.bar(over+0.25, nz, color='r', width=0.25, label = 'NZ')
+   plt.legend(loc='upper left')
+   <<plt-postamble>>
+ #+END_SRC
+
+\newpage
+ #+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+ #+HEADER: :var path="fig5.png"
+ #+BEGIN_SRC python :results file :exports both :noweb strip-export
+   <<plt-preamble>>
+   proglang=['Python', 'C++', 'Java', 'Perl', 'Lisp']
+   performance=[10,7,6,4,2]
+   plt.xlabel=('Programming Languages')
+   plt.ylabel=('Performance')
+   plt.bar(proglang,performance, color='red')
+   <<plt-postamble>>
+ #+END_SRC
+
+\newpage
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig6.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import pandas as pd
+  x = {'speed':[10,15,20,18,19],\
+          'meters':[122,150,190,230,300],\
+           'weight':[0.2,0.3,0.1,0.85,0.0]}
+  df=pd.DataFrame(x)
+  plt.scatter(list(df['meters']), list(df['speed']))
+  <<plt-postamble>>
+#+END_SRC
+
+\newpage
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig7.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import pandas as pd
+  x = {'speed':[10,15,20,18,19],\
+          'meters':[122,150,190,230,300],\
+           'weight':[0.2,0.3,0.1,0.85,0.0]}
+  df=pd.DataFrame(x)
+  plt.scatter(list(df['meters']), list(df['weight']))
+  <<plt-postamble>>
+#+END_SRC
+
+\newpage
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig8.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import pandas as pd
+  df1 = pd.DataFrame({'1990':[52,64,78,94], '2000':[340,480,688,766], '2010':[890,560,1102,889]})
+  df1.index=['a', 'b', 'c', 'd']
+
+  plt.scatter(list(df1['1990']), list(df1['2000']))
+  plt.plot(df1['1990'], df1['2000'])
+
+  <<plt-postamble>>
+#+END_SRC
+
+\newpage
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig9.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import pandas as pd
+  df1 = pd.DataFrame({'1990':[52,64,78,94], '2000':[340,480,688,766], '2010':[890,560,1102,889]})
+  df1.index=['a', 'b', 'c', 'd']
+
+  plt.plot(df1['1990'], df1['2000'])
+
+  <<plt-postamble>>
+#+END_SRC
+
+\newpage
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig10.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import pandas as pd
+  df1 = pd.DataFrame({'1990':[52,64,78,94], '2000':[340,480,688,766], '2010':[890,560,1102,889]})
+  df1.index=['a', 'b', 'c', 'd']
+
+  df1.plot.bar()
+  <<plt-postamble>>
+#+END_SRC
+
+\newpage
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig11.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import pandas as pd
+  df1 = pd.DataFrame({'Jan':[140, 160, 140, 180, 110], 'Feb':[130, 200, 180, 150, 160], 'Mar':[130, 130, 150, 200, 130], 'Apr':[190, 200, 170, 120, 110], 'May':[160, 200, 190, 180, 120], 'Jun':[200, 170, 140, 140, 170], 'Jul':[150, 110, 170, 110, 130], 'Aug':[170, 160, 180, 130, 200], 'Sep':[190, 130, 190, 150, 150], 'Oct':[170, 140, 150, 190, 160], 'Nov':[150, 170, 140, 110, 170], 'Dec':[120, 200, 170, 140, 130]})
+  df1.index=['North', 'South', 'East', 'West', 'Central']
+  print(df1)
+  df1.plot.bar()
+  <<plt-postamble>>
+#+END_SRC
+
+\newpage
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig0.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import pandas as pd
+  df1 = pd.DataFrame({'Jan':[140, 160, 140, 180, 110], 'Feb':[130, 200, 180, 150, 160], 'Mar':[130, 130, 150, 200, 130], 'Apr':[190, 200, 170, 120, 110], 'May':[160, 200, 190, 180, 120], 'Jun':[200, 170, 140, 140, 170], 'Jul':[150, 110, 170, 110, 130], 'Aug':[170, 160, 180, 130, 200], 'Sep':[190, 130, 190, 150, 150], 'Oct':[170, 140, 150, 190, 160], 'Nov':[150, 170, 140, 110, 170], 'Dec':[120, 200, 170, 140, 130]})
+  df1.index=['North', 'South', 'East', 'West', 'Central']
+  print(df1)
+  df1.plot.line()
+  <<plt-postamble>>
+#+END_SRC
+
+\newpage
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig12.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import pandas as pd
+  df1 = pd.DataFrame({'Jan':[140, 160, 140, 180, 110], 'Feb':[130, 200, 180, 150, 160], 'Mar':[130, 130, 150, 200, 130], 'Apr':[190, 200, 170, 120, 110], 'May':[160, 200, 190, 180, 120], 'Jun':[200, 170, 140, 140, 170], 'Jul':[150, 110, 170, 110, 130], 'Aug':[170, 160, 180, 130, 200], 'Sep':[190, 130, 190, 150, 150], 'Oct':[170, 140, 150, 190, 160], 'Nov':[150, 170, 140, 110, 170], 'Dec':[120, 200, 170, 140, 130]})
+  df1.index=['North', 'South', 'East', 'West', 'Central']
+  plt.plot(df1.columns.values.tolist(), df1.loc['North',:], label='North')
+  plt.plot(df1.columns.values.tolist(), df1.loc['South',:], label='South')
+  plt.plot(df1.columns.values.tolist(), df1.loc['East',:], label='East')
+  plt.plot(df1.columns.values.tolist(), df1.loc['West',:], label='West')
+  plt.plot(df1.columns.values.tolist(), df1.loc['Central',:], label='Central')
+  plt.legend()
+  <<plt-postamble>>
+#+END_SRC
+
+\newpage
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig13.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import random
+  x=[]
+  for i in range(0,100):
+      x.append(random.random())
+  plt.hist(x, bins=50)
+  <<plt-postamble>>
+#+END_SRC
+
+\newpage
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig14.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import random
+  x=[]
+  for i in range(0,100):
+      x.append(random.random())
+  plt.hist(x, bins=20, cumulative=True)
+  <<plt-postamble>>
+#+END_SRC
+
+\newpage
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig15.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  import random
+  x=[]
+  y=[]
+  for i in range(0,100):
+      x.append(random.random())
+  for i in range(0,100,5):
+      y.append(random.random())
+
+  plt.hist([x,y], histtype='barstacked', cumulative=True)
+  <<plt-postamble>>
+#+END_SRC
+
+\newpage
+#+ATTR_LATEX: :options frame=single, framesep=10pt, linenos
+#+HEADER: :var path="fig16.png"
+#+BEGIN_SRC python :results file :exports both :noweb strip-export
+  <<plt-preamble>>
+  labels = 'Candidate1', 'Candidate2', 'Candidate3', 'Candidate4'
+  votes = [315, 130, 245, 210]
+  sizes=votes
+  colors = ['gold', 'yellowgreen', 'lightcoral', 'lightskyblue']
+  explode = (0.1, 0, 0, 0) # explode 1st slice
+  # Plot
+  plt.pie(sizes, explode=explode, labels=labels, colors=colors,
+  autopct='%1.1f%%', shadow=True, startangle=140)
+  plt.axis('equal')
+  <<plt-postamble>>
+#+END_SRC
+
+\newpage
