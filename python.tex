@@ -1,8 +1,6 @@
-% Created 2020-10-16 Fri 13:32
-% Intended LaTeX compiler: pdflatex
+% Created 2020-11-30 Mon 13:39
+% Intended LaTeX compiler: xelatex
 \documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -36,9 +34,9 @@
 \newpage
 
 \section{Preamble}
-\label{sec:orgc7b6f3e}
+\label{sec:org7aa832e}
 \subsection{Notebook Conventions}
-\label{sec:orgf42d868}
+\label{sec:org071e955}
 All code in this notebook is in Python unless specified otherwise.
 All code is syntax-highlighted, placed in boxes, and is line
 numbered. The output of the interpreter on \texttt{stdout} is printed directly below it,
@@ -57,7 +55,7 @@ It is recommended that you navigate using the hyperlinked TOC or the Adobe
 Bookmarks tree.
 
 \subsection{Hardware and Software Used}
-\label{sec:orgaca7fbb}
+\label{sec:orga5151e0}
 
  This notebook is written in an \texttt{org-mode} file and exported to PDF via \LaTeX{}, Org version 9.3.6 on
 GNU Emacs 25.2.2 (x86\_ 64-pc-linux-gnu, GTK+ Version 3.22.21) of
@@ -67,7 +65,7 @@ throughout unless specified otherwise. For the Org or \LaTeX{} source, contact
 \href{mailto:aditya.v.nebhrajani@gmail.com}{aditya.v.nebhrajani@gmail.com}.
 
 \subsection{Acknowledgements}
-\label{sec:org8be2c76}
+\label{sec:orge5bf3ec}
 I am grateful to the FSF, the GNU Project, the Linux foundation,
 the Emacs, StackExchange and FLOSS communities, and my father,
 who taught me that a world outside commercialized technology does
@@ -75,9 +73,9 @@ exist and thrive.
 \newpage
 
 \section{NumPy}
-\label{sec:orgc5afff0}
+\label{sec:org7a3db72}
 \subsection{Worksheet 2020-07-26}
-\label{sec:org7083366}
+\label{sec:orgd8b973d}
 
 \begin{enumerate}
 \item Create an ndarray with values ranging from 10 to 49 each spaced with a difference of 3.
@@ -355,9 +353,9 @@ print(a[::-1,::-1])
 
 \newpage
 \section{Pandas}
-\label{sec:orge2965be}
+\label{sec:orgfa8a7b6}
 \subsection{Series}
-\label{sec:orgcc451d2}
+\label{sec:org9982547}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Import numpy and pandas
 import pandas as pd
@@ -716,7 +714,7 @@ Name: animal, dtype: bool
 \end{minted}
 
 \subsection{DataFrame}
-\label{sec:org770a983}
+\label{sec:org28e6507}
 
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 # Empty dataframe
@@ -798,14 +796,14 @@ print(d_frame)
 
 \begin{verbatim}
           0         1         2         3
-0  1.430385  0.458970  0.942348  1.802464
-1 -0.361400 -1.302852 -0.154312  0.982827
-2  1.781622  1.741469 -0.602436  0.127425
-3  1.027146 -0.921870  0.935537 -2.424546
-4 -0.469162 -0.377110 -0.517063  0.931929
-5 -0.680141 -1.916021 -0.403198 -0.878187
-6 -0.373937  1.008826  0.093256  1.336087
-7  0.427973 -0.189043 -1.140688 -1.914831
+0  0.049889 -0.023608 -0.440367 -0.056632
+1 -0.197328 -1.321372  0.057144 -0.246128
+2  0.056151  1.133497  1.717957  0.244436
+3 -1.261762  2.053759 -1.261362 -0.126038
+4 -1.099790  1.070017  0.163324  1.411041
+5 -0.272632  0.589077 -0.831626 -0.204569
+6 -0.066220  0.550384 -0.256205 -0.348175
+7  0.465260  0.365302  0.603604 -0.583362
 \end{verbatim}
 
 
@@ -1456,7 +1454,7 @@ TV       12000    NaN    10000
 
 \newpage
 \section{Matplotlib}
-\label{sec:org96bb606}
+\label{sec:orgc42de39}
 The next two blocks are the preamble and the postamble for all code
 blocks in \texttt{matplotlib}. These prevent repetitive code writing.
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
@@ -1472,7 +1470,7 @@ return path
 \end{minted}
 \newpage
 \subsection{Some Simple Plots}
-\label{sec:org2e7bedf}
+\label{sec:org57f639f}
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
 
 x = np.arange(1, 10, 0.1)
@@ -1662,8 +1660,6 @@ df1.plot.line()
 \begin{center}
 \includegraphics[width=.9\linewidth]{fig0.png}
 \end{center}
-
-
 
 \newpage
 \begin{minted}[,frame=single, framesep=10pt, linenos]{python}
